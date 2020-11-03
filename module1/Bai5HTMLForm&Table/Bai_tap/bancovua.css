@@ -1,0 +1,73 @@
+
+table {
+    width: 40%;
+}
+
+th, td {
+    background-color: #d6b832;
+    height: 50px;
+    width: 50px;
+}
+
+td {
+    text-align: center;
+}
+
+.even td:nth-child(even) {
+    background-color: black;
+}
+
+.even td:nth-child(odd) {
+    background-color: white;
+}
+
+.odd td:nth-child(even) {
+    background-color: white;
+}
+
+.odd td:nth-child(odd) {
+    background-color: black;
+}
+
+.ab td:nth-child(even) {
+    background-color: white;
+}
+
+.ab td:nth-child(odd) {
+    background-color: black;
+}
+.ac td:nth-child(even) {
+    background-color: black;
+}
+
+.ac td:nth-child(odd) {
+    background-color: white;
+}
+.ad td:nth-child(even) {
+    background-color: white;
+}
+
+.ad td:nth-child(odd) {
+    background-color: black;
+}
+.ae td:nth-child(even) {
+    background-color: black;
+}
+
+.ae td:nth-child(odd) {
+    background-color: white;
+}
+.as td:nth-child(even) {
+    background-color: white;
+}
+
+.as td:nth-child(odd) {
+    background-color: black;
+}
+.az td:nth-child(even) {
+    background-color: black;
+}
+
+.az td:nth-child(odd) {
+    background-color: white;
+}

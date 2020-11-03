@@ -1,0 +1,21 @@
+table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+td,th {
+    border: 3px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+.name{
+    text-align: center;
+    color: blue;
+}
+th{
+    background-color: #d6c609;
+    color: white;
+}
+tr.noBoder td{
+    border: 0;
+}

@@ -1,0 +1,35 @@
+body{
+    padding: 50px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+
+}
+td, th {
+    padding: 20px;
+    border: 1px solid black;
+}
+th{
+    font-size:16px;
+    font-weight:400;
+    text-align:center;
+    padding:20px;
+    background-color: #d6d50e;
+    border: 1px solid black;
+}
+td{
+    font-size:16px;
+    font-weight:400;
+    padding:20px;
+    text-align:center;
+}
+.a{
+    background-color: #d68010;
+}
+.b{
+    color: blue;
+}
+div.c{
+    text-align: center;
+}
