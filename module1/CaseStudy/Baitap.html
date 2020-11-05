@@ -3,26 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Ứng Dụng Quản Lý Khu Nghỉ Dưỡng Furama</title>
+    <style>
+        label{
+            display: inline-block;
+            width: 150px;
+        }
+        div.name{
+            text-align: center;
+            color: blue;
+        }
+
+    </style>
 </head>
 <body>
-<form>
-    <label>Họ và tên :</label><input type="text">
+<form id="form">
+    <fieldset style="margin-right: 70%; background-color: #d6d054" >
+        <div class="name">
+    <h2>REGISTRATION</h2>
+        </div>
+    <label>Họ và tên :</label><input type="text" name="name" >
     <br>
     <br>
-    <label>CMND :</label><input type="number">
+    <label>CMND :</label><input type="number" name="cmnd" >
     <br>
     <br>
-    <label>Ngày tháng năm sinh :</label><input type="text">
+    <label>Ngày tháng năm sinh :</label><input type="date" name="dob">
     <br>
     <br>
-    <label>Email :</label><input type="text">
+    <label>Email :</label><input type="text" name="email">
     <br>
     <br>
-    <label style="display: inline-block; align-self: center">Địa chỉ :</label><textarea></textarea>
+    <label style="display: inline-block; align-self: center">Địa chỉ :</label><textarea name="address"></textarea>
     <br>
     <br>
     <label>Loại Customer :</label>
-    <select>
+    <select name="type">
         <option>Diamond</option>
         <option>Platinum</option>
         <option>Gold</option>
@@ -31,30 +46,61 @@
     </select>
     <br>
     <br>
-    <label>Giảm giá :</label><input type="text">
+    <label>Giảm giá :</label><input type="text" name="discour">
     <br>
     <br>
-    <label>Số lượng đi kèm :</label><input type="text">
+    <label>Số lượng đi kèm :</label><input type="text" name="amount">
     <br>
     <br>
-    <label>Số ngày thuê :</label><input type="number">
+    <label>Số ngày thuê :</label><input type="number" name="num">
     <br>
     <br>
     <label>Loại dịch vụ :</label>
-        <select>
-            <option>Villa</option>
-            <option>House</option>
-            <option>Room</option>
+        <select name="service">
+            <option value="500">Villa 500$/1 day</option>
+            <option value="300">House 300$/1 day</option>
+            <option value="100">Room 100$/1 day</option>
         </select>
     <br>
     <br>
     <label>Loại phòng thuê :</label>
-        <select>
+        <select name="room">
             <option>Vip</option>
             <option>Business</option>
             <option>Normal</option>
         </select>
+        <br>
+        <br>
+        <div class="name">
+        <input type="button" value="Registration" onclick="check()">
+        <input type="reset" value="Reset">
+        </div>
+    </fieldset>
 </form>
+
+<script>
+    let form = document.getElementById('form');
+    function check() {
+        document.write("Họ và tên :" + form.name.value + '<br>');
+        document.write("CMND :" + form.cmnd.value + '<br>');
+        document.write("Ngày sinh :" + form.dob.value+ '<br>');
+        document.write("Email :" + form.email.value+ '<br>');
+        document.write("Địa chỉ :" + form.address.value+ '<br>');
+        document.write("Loại :" + form.type.value+ '<br>');
+        document.write("Giảm giá :" + form.discour.value + '%' + '<br>');
+        document.write("Số lượng :" + form.amount.value+ '<br>');
+        document.write("Số ngày :" + form.num.value+ '<br>');
+        document.write("Loại dịch vụ :" + form.service.value + '$' + '<br>');
+        document.write("Loại phòng :" + form.room.value + '<br>');
+
+        let service = parseInt(form.service.value);
+        let num = parseInt(form.num.value);
+        let discount = parseInt(form.discour.value);
+        let result = service * num * (1 - discount/100);
+        document.write("Giá tiền là :" + result + '$');
+    }
+
+</script>
 
 </body>
 </html>

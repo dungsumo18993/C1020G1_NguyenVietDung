@@ -2,22 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233befcf-a737-4517-bd86-77e7029c7c01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Bai_tap/Baitap1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Bai_tap/baitap2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Bai_tap/baitap3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Bai_tap/baitap4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Bai_tap/chuyendoitiente.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Bai_tap/maytinh.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Thuc_hanh/Thuchanh_TT.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Thuc_hanh/bai1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Thuc_hanh/bai2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Thuc_hanh/bai3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai7Bien_kieudulieu/Thuc_hanh/thuchanh_TT.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseStudy/Baitap.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/ex01.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/kiemtranamnhuan.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/sign.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/tinhcannang.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai5HTMLForm&amp;Table/Bai_tap/bancovua.css" beforeDir="false" afterPath="$PROJECT_DIR$/Bai5HTMLForm&amp;Table/Bai_tap/bancovua.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai6Javascript/Thuc_hanh/baitap3.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai6Javascript/Thuc_hanh/baitap3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai6Javascript/Thuc_hanh/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai6Javascript/Thuc_hanh/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseStudy/Baitap.html" beforeDir="false" afterPath="$PROJECT_DIR$/CaseStudy/Baitap.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +63,9 @@
       <workItem from="1604044084699" duration="1658000" />
       <workItem from="1604475791377" duration="5519000" />
       <workItem from="1604495687528" duration="6246000" />
+      <workItem from="1604548073077" duration="13040000" />
+      <workItem from="1604584352760" duration="1768000" />
+      <workItem from="1604586419363" duration="984000" />
     </task>
     <servers />
   </component>
