@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt('Số phút :'));
+
+    if(number == 1){
+        alert('Tiền cước :' + number*1500);
+    } else if (number > 1 && number < 10){
+        alert('Tiền cước :' + number * 1000);
+    } else {
+        alert('Tiền cước :' + number * 800)
+    }
+</script>
+</body>
+</html>

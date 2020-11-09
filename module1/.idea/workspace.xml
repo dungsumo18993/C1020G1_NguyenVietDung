@@ -2,13 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233befcf-a737-4517-bd86-77e7029c7c01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/ex01.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/kiemtranamnhuan.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/sign.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/tinhcannang.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/add.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/employee.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai6.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CaseStudy/Baitap.html" beforeDir="false" afterPath="$PROJECT_DIR$/CaseStudy/Baitap.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +76,8 @@
       <workItem from="1604495687528" duration="6246000" />
       <workItem from="1604548073077" duration="13040000" />
       <workItem from="1604584352760" duration="1768000" />
-      <workItem from="1604586419363" duration="984000" />
+      <workItem from="1604586419363" duration="1588000" />
+      <workItem from="1604626078519" duration="19224000" />
     </task>
     <servers />
   </component>

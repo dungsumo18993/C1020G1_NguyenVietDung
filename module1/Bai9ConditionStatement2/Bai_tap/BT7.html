@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt('Nhập a:'));
+    let b = parseInt(prompt('Nhập b:'));
+    let c = parseInt(prompt('Nhập c:'));
+    result = b*b - 4*a*c;
+
+    if(result < 0){
+        document.write('PT vô nghiệm');
+    } else if(result == 0){
+        x = -b/2*a;
+        document.write('PT có nghiệm kép:' + x);
+    } else {
+        x1 = (-b + Math.sqrt(result))/ (2*a);
+        x2 = (-b - Math.sqrt(result))/ (2*a);
+        document.write('PT có 2 nghiệm:' + x1 + '&' + x2);
+    }
+</script>
+</body>
+</html>

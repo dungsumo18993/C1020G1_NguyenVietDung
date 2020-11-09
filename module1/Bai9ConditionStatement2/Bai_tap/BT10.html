@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let a = parseInt(prompt('Số điện :'));
+    let price  =0;
+    
+    if(a > 500){
+        price = 3000;
+    } else if(a > 300){
+        price = 2500;
+    } else if(a > 100){
+        price = 1500;
+    } else {
+        price = 1000;
+    }
+    alert('Giá tiền là:' + a*price);
+</script>
+</body>
+</html>
