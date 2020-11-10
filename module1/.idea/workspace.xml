@@ -2,23 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233befcf-a737-4517-bd86-77e7029c7c01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai8ConditionStatement/Thuc_hanh/employee.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT10.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT9.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/bai6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Bai_tap/SNTdautien.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Bai_tap/bai1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Bai_tap/bai2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/BT1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/BT2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/Bai1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/Bai2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/dowhilesample.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/looplongnhau.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai9ConditionStatement2/Bai_tap/BT12.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -43,11 +37,11 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -57,7 +51,9 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -78,6 +74,11 @@
       <workItem from="1604584352760" duration="1768000" />
       <workItem from="1604586419363" duration="1588000" />
       <workItem from="1604626078519" duration="19224000" />
+      <workItem from="1604893576145" duration="55000" />
+      <workItem from="1604893657877" duration="146000" />
+      <workItem from="1604894652487" duration="754000" />
+      <workItem from="1604895497741" duration="122000" />
+      <workItem from="1604895621316" duration="14905000" />
     </task>
     <servers />
   </component>
@@ -93,9 +94,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="860" y="192" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1604478235905" />
-    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1604046320199">
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1604895618658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604046320199" />
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604895618658" />
   </component>
 </project>
