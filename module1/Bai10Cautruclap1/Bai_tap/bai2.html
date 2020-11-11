@@ -9,6 +9,14 @@
 <script>
     let temparature = parseInt(prompt("Nhập nhiệt độ :"));
 
+    while(temparature > 100 || temparature < 20){
+        if(temparature > 100){
+            temparature = prompt("Giảm nhiệt độ")
+        } else  if (temparature < 20){
+            temparature = prompt("Tăng nhiệt độ")
+        }
+    }alert("Nhiệt độ phù hợp")
+
 </script>
 </body>
 </html>

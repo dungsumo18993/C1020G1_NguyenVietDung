@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyện tập vòng lặp 2</title>
+</head>
+<h4 onclick="print()">Bài 1: In dãy Finonaci</h4>
+<h4 onclick="giaithua()">Bài 2: Tính giai thừa của một số nguyên dương</h4>
+<h4>In tam giác vuông</h4>
+<p onclick="tamgiac1()">1</p>
+<p onclick="tamgiac2()">2</p>
+<p onclick="tamgiac3()">3</p>
+<p onclick="tamgiac4()">4</p>
+<h4 onclick="chunhat()">In hình chữ nhật</h4>
+<h4 onclick="laixuat()">Bài 5: Viết chương trình tính lãi ngân hàng.</h4>
+
+<body>
+
+<script>
+    function print() {
+        // let a = 1;
+        // let b = 1;
+        // let c = 1;
+        // let count = 0;
+        // document.write(a + "<br>")
+        // document.write(b + "<br>")
+        // while (count<100){
+        //     c = a + b;
+        //     a = b;
+        //     b = c;
+        //     count++;
+        // }
+        // document.write(c + "<br>")
+
+    }
+    function giaithua() {
+        let num = parseInt(prompt("Nhập số :"))
+        let i;
+        let gt = 1;
+        for (i=1; i<=num; i++){
+            gt = gt * i;
+        }
+        document.write("Giai thừa của " + num + " là " + gt)
+
+    }
+    function tamgiac1() {
+        for(let i=1; i<=5; i++){
+            // document.write("*")
+            for(let j=0; j<i; j++){
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    }
+
+
+    function tamgiac2() {
+        for(let i=1;i<=5; i++){
+            for(let j=6; j>i; j--){
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    }
+
+    function tamgiac3() {
+        for (let i=1; i<=5; i++) {
+            for (let j=6; j>=i; j--) {
+                document.write("&nbsp&nbsp")
+            }
+            for(let k=1; k<=i; k++){
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+    }
+
+    function tamgiac4() {
+        for (let i=1; i<=5; i++) {
+            for(let k=1; k<=i; k++) {
+                document.write("&nbsp&nbsp")
+            }
+            for (let j=5; j>=i; j--) {
+                document.write("*")
+            }
+            document.write("<br>")
+        }
+
+    }
+
+    function chunhat() {
+        for(let i=1; i<=7; i++){
+            for (let j=1; j<=20; j++){
+                if(i>1 && i<7 && j>1 && j<20){
+                    document.write("&nbsp&nbsp")
+                } else {
+                    document.write("*")
+                }
+            }
+            document.write("<br>")
+        }
+    }
+
+    function laixuat() {
+        let money = parseInt(prompt("Nhập số tiền cần vay"));
+        let month = parseInt(prompt("Nhập số tháng vay"));
+
+    }
+</script>
+</body>
+</html>

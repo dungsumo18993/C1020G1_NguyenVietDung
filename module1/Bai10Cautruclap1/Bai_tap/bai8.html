@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<button onclick="playGame()">Start</button>
+<body>
+
+<script>
+    function playGame() {
+        let startNumber = parseInt(prompt("Nhập số bắt đầu"))
+        let endNumber = parseInt(prompt("Nhập số kết thúc"))
+        let random = parseInt((Math.random() * (endNumber - startNumber)) + startNumber);
+        let doanXem;
+        let count =0;
+        do {
+            doanXem = parseInt(prompt("Nhập số bạn muốn đoán"));
+            if (doanXem < random) {
+                alert("Số bạn vừa nhập nhỏ hơn. Mời bạn nhập lại")
+            } else if (doanXem > random) {
+                alert("Số bạn vừa nhập lớn hơn. Mời bạn nhập lại")
+            } else {
+                alert("Chúc mừng")
+                break;
+            }
+            count++;
+        } while (count <3)
+    }
+</script>
+</body>
+</html>
