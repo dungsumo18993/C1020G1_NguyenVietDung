@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<h4 onclick="check1()">Bài 1</h4>
+<h4 onclick="check2()">Bài 2</h4>
+
+<h4 onclick="check3()">Bài 3</h4>
+
+<h4 onclick="check4()">Bài 4</h4>
+
+<h4 onclick="check5()">Bài 5</h4>
+
+<h4 onclick="check6()">Bài 6</h4>
+
+<h4 onclick="check7()">Bài 7</h4>
+
+<h4 onclick="check8()">Bài 8</h4>
+
+<h4 onclick="check9()">Bài 9</h4>
+<body>
+
+<script>
+
+    function check1() {
+        let number = [];
+        for( let i=0; i<10; i++){
+            number.push(parseInt(prompt("")))
+        }
+        for (let i = 0; i<number.length; i++ ){
+            if(number[i]>=10){
+                document.writeln(number[i])
+            }
+        }
+    }
+
+    function check2() {
+        let number = [1,5,9,11,18,21,35,42,46,111]
+        let max = number[0];
+        let index = 0;
+
+        for (let i = 0; i<number.length; i++){
+            if(number[i] > max){
+                max = number[i];
+                index = i;
+            }
+        }
+        document.write("Max là :" + max + " index là :" + index)
+    }
+
+    function check3() {
+        let number = [1,5,9,11,18,21,35,42,46,111]
+        let max = number[0];
+        let sum =0;
+
+        for(let i=0; i<number.length; i++){
+            if(number[i]>max){
+                max = number[i];
+                sum+=number[i];
+            }
+        }
+        document.write("Trung bình :" + sum/number.length + "<br>")
+        document.write("Max là :" + max)
+    }
+
+    function check4() {
+        let number = [];
+            for(let i = 0;i<5;i++) {
+            number.push(parseInt(prompt("")))
+}
+        document.write(number.reverse());
+    }
+
+    function check5() {
+        let number = [];
+        for(let i=0; i<5; i++){
+            number.push(parseInt(prompt("")))
+        }
+
+        for(let i=0; i<number.length; i++){
+            if(number[i]<0){
+                document.writeln(number[i])
+            }
+        }
+    }
+
+    function check6() {
+        let i;
+        let number = [];
+        for( i=0; i<10; i++){
+            number.push(parseInt(prompt("Nhập phần tử của mảng: ")))
+        }
+        document.writeln(number + "<br>")
+
+        let number1 = parseInt(prompt("Nhập số cần tìm: "))
+
+        for( i=0; i<number.length; i++){
+            if(number[i] == number1){
+                document.write(number1 + " is in the array")
+                break;
+            }
+        }
+        if (i == 10){
+            document.write(number1 + " is not in the array")
+        }
+    }
+    
+    function check7() {
+        let i;
+        let number = [];
+        for( i=0; i<10; i++){
+            number.push(parseInt(prompt("Nhập phần tử của mảng: ")))
+        }
+        document.writeln(number + "<br>")
+
+        let number1 = parseInt(prompt("Nhập số cần tìm: "))
+        for (i=0; i<number.length; i++){
+            if(number.indexOf(number1) !== -1){
+                document.write(number1 + " is in the array")
+            } else {
+                document.write(number1 + " is not in the array")
+                break;
+            }
+        }
+    }
+    
+    function check8() {
+        let number = [];
+        for(let i=0; i<10; i++){
+            number.push(parseInt(prompt("")))
+        }
+        number.sort ((a,b) => {
+            return b-a;
+        });
+        document.write(number)
+    }
+    
+    function check9() {
+        let a = [];
+        for(let i=0; i<10; i++){
+            a.push(parseInt(prompt("Mảng a")))
+        }
+        let b = [];
+        for (let j=0; j<10; j++){
+            b.push(parseInt(prompt("Mảng b")))
+        }
+        let c = a.concat(b);
+        document.writeln(c);
+    }
+
+</script>
+</body>
+</html>

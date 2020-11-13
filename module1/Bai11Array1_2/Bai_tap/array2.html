@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="Bài 1" onclick="check1()">
+<input type="button" value="Bài 2" onclick="check2()">
+<input type="button" value="Bài 3" onclick="check3()">
+<input type="button" value="Bài 4" onclick="check4()">
+<input type="button" value="Bài 5" onclick="check5()">
+<input type="button" value="Bài 6" onclick="check6()">
+
+<script>
+    function check1() {
+        let a = [
+            [1, 2, 1, 24],
+            [8, 11, 9, 4],
+            [7, 0, 7, 27],
+            [7, 4, 28, 14],
+            [3, 10, 26, 7]
+        ];
+        for(let i in a){
+            document.writeln("row" + i);
+            for(let j in a[i]){
+                document.writeln(" " + a[i][j]);
+            }
+        }
+    }
+
+    function check2() {
+        let arr = [];
+        for(let i=0; i<5; i++){
+            arr.push(prompt(""))
+        }
+        arr.reverse().join();
+        alert(arr);
+    }
+</script>
+</body>
+</html>
