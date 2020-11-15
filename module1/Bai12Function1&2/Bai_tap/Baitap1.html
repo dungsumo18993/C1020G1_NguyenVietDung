@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra SNT</title>
+</head>
+<body>
+
+<script>
+    function checkSNT(x) {
+        let i;
+        if (x<2){
+            return false;
+        }
+        for (i=2; i<=x-1; i++){
+            if(x%i == 0){
+            return false;
+            }
+            return true;
+        }
+
+    }
+    let n = parseInt(prompt("Nhập số cần kiểm tra: "))
+    if(checkSNT(n) == true){
+        alert(n + " là SNT")
+    } else {
+        alert(n + " không là SNT")
+    }
+</script>
+</body>
+</html>
