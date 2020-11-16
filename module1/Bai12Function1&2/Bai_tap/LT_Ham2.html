@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="Bài 1" onclick="check1()">
+<input type="button" value="Bài 2" onclick="check2()">
+<input type="button" value="Bài 3" onclick="check3()">
+<input type="button" value="Bài 4" onclick="check4()">
+<input type="button" value="Bài 5" onclick="check5()">
+<input type="button" value="Bài 6" onclick="check6()">
+<input type="button" value="Bài 7" onclick="check7()">
+<input type="button" value="Bài 8" onclick="check8()">
+<input type="button" value="Bài 9" onclick="check9()">
+
+<script>
+    //Bài 1
+    function check1() {
+        function square(a) {
+            let result = a * a;
+            return result;
+        }
+
+        let n = parseInt(prompt("Nhập số: "))
+        alert(square(n));
+    }
+
+    //Bài 2
+    function check2() {
+        function acreage(a) {
+            let result = a * a * 3.14;
+            return result;
+        }
+
+        function perimeter(b) {
+            let chuvi = 2 * b * 3.14;
+            return chuvi;
+        }
+
+        let n = parseInt(prompt("Nhập bán kính đường tròn: "))
+        alert("Diện tích hình tròn là: " + acreage(n) + "\n" +
+            "Chu vi hình tròn là: " + perimeter(n));
+    }
+
+    //Bài 3
+    function check3() {
+        function giaithua(a) {
+            let result = 1;
+            for (let i = 1; i <= a; i++) {
+                result = result * i;
+            }
+            return result;
+        }
+
+        let n = parseInt(prompt("Nhập số: "))
+        alert("Giai thừa của " + n + " là " + giaithua(n));
+    }
+
+    //Bài 4
+    function check4() {
+        function check(a) {
+            let c = "0123456789"
+            if(c.indexOf(a) !== -1){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        let n = parseInt(prompt("Nhập: "))
+        alert(check(n));
+    }
+    //Bài 5
+    function check5() {
+
+        function compare(a, b, c) {
+            console.log(a, b, c);
+            let min;
+            if (a > b) {
+                if (b > c) {
+                    min = c;
+                } else {
+                    min = b;
+                }
+            } else {
+                min = a;
+            }
+            return min;
+        }
+        let num1 = parseInt(prompt("Nhập số: "))
+        let num2 = parseInt(prompt("Nhập số: "))
+        let num3 = parseInt(prompt("Nhập số: "))
+        alert("Số nhỏ nhất là: " + compare(num1, num2, num3));
+    }
+    //Bài 6
+    function check6() {
+        function check(a) {
+            if(a>0){
+                return true;
+            } else {
+                return false;
+            }
+        }
+        let n = parseInt(prompt("Nhập số: "))
+        alert(check(n));
+    }
+    //Bài 7
+    function check7() {
+        function check(a,b) {
+            let c = a;
+            a = b;
+            b = c;
+        }
+        let num = parseInt(prompt("Nhập a: "))
+        let num1 = parseInt(prompt("Nhập b: "))
+        alert(check(num,num1));
+    }
+    //Bài 8
+    function check8() {
+        function check() {
+            let arr = [prompt(),prompt()];
+            arr.reverse();
+            return arr;
+        }
+        alert(check());
+    }
+    //Bài 9
+    function check9() {
+        function check(a) {
+            let i;
+            let sum = 0;
+            let arr = [];
+            for(i=0; i<5; i++){
+                arr.push(parseInt(prompt("Nhập mảng: ")))
+            }
+            for( i=0; i<arr.length; i++){
+                if(a === arr[i]){
+                    sum += 1;
+                }
+            }
+            return sum;
+        }
+        let n = parseInt(prompt("Nhập số: "))
+        alert(check(n));
+    }
+
+
+</script>
+</body>
+</html>
