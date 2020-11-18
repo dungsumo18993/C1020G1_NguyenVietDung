@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233befcf-a737-4517-bd86-77e7029c7c01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/LT_Ham2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/CaseStudy/Yeucau3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/BTkho1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/BTkho2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai13OOP/Bai_tap/BT1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai13OOP/Bai_tap/BT2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai13OOP/Bai_tap/BT3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai13OOP/Thuc_hanh/TH.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai13OOP/Thuc_hanh/TH1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai13OOP/Thuc_hanh/TH2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/Baitap1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/Baitap1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/LT_Ham1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/LT_Ham1.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +83,8 @@
       <workItem from="1605186977307" duration="2721000" />
       <workItem from="1605237459277" duration="14293000" />
       <workItem from="1605456062590" duration="492000" />
-      <workItem from="1605489867373" duration="28627000" />
+      <workItem from="1605489867373" duration="29194000" />
+      <workItem from="1605576025168" duration="16782000" />
     </task>
     <servers />
   </component>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    class Temperature {
+        constructor(poison) {
+            this.poison=poison;
+        }
+        change (){
+            return 1.8* this.poison + 32;
+        }
+        convert (){
+            return this.poison + 273.15;
+        }
+    }
+    let temperature = new Temperature(25)
+
+    let doF = temperature.change();
+    let doK = temperature.convert();
+    alert("Độ F là: " + doF + "\n" + "Độ K là: " + doK)
+</script>
+</body>
+</html>
