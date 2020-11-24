@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="233befcf-a737-4517-bd86-77e7029c7c01" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/CaseStudy/Yeucau4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Bai_tap/text.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai11Array1_2/Bai_tap/TuDien.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/QuanLySanPham.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Bai13OOP1&amp;2/Bai_tap/Adam&amp;Eva.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CaseStudy/Yeucau5.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai13OOP/Bai_tap/BT1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai13OOP/Bai_tap/BT2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai13OOP/Bai_tap/BT3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai13OOP/Thuc_hanh/TH.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai13OOP/Thuc_hanh/TH1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bai13OOP/Thuc_hanh/TH2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai10Cautruclap1/Bai_tap/bai5.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Bai_tap/bai5.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai10Cautruclap1/Bai_tap/baitap1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Bai_tap/baitap1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/test.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai10Cautruclap1/Thuc_hanh/test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/LT_Ham1.html" beforeDir="false" afterPath="$PROJECT_DIR$/Bai12Function1&amp;2/Bai_tap/LT_Ham1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CaseStudy/Yeucau3.html" beforeDir="false" afterPath="$PROJECT_DIR$/CaseStudy/Yeucau3.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -86,6 +89,11 @@
       <workItem from="1605576025168" duration="16782000" />
       <workItem from="1605668710916" duration="13395000" />
       <workItem from="1605712413575" duration="3072000" />
+      <workItem from="1605749689931" duration="6010000" />
+      <workItem from="1605867208912" duration="647000" />
+      <workItem from="1606056510267" duration="4455000" />
+      <workItem from="1606095671356" duration="7320000" />
+      <workItem from="1606180848134" duration="23049000" />
     </task>
     <servers />
   </component>

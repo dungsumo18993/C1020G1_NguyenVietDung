@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Từ Điển</h2>
+<br>
+<input id="form" type="text" placeholder="Nhập từ cần tìm" ><input type="button" value="Tìm" onclick="check()">
+
+<script>
+    let AN = ["dog","cat","pig"];
+    let VI = ["chó","mèo","heo"];
+
+    function check() {
+        let temp;
+        let a = document.getElementById("form").value;
+        for(let i=0; i<AN.length; i++){
+            if(a===AN[i]){
+                temp=(VI[i]);
+                break;
+            }
+            temp="Không tìm thấy";
+        }
+    alert(temp);
+    }
+
+</script>
+</body>
+</html>

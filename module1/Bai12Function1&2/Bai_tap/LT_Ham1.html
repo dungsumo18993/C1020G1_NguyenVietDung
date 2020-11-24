@@ -64,21 +64,19 @@
     function check5() {
         let arr = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
         let arr1 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
-        let a = prompt("Tên Ngôi Sao: ");
+        let a = prompt("Nhập ngôi sao: ");
         function search() {
-            let i;
-            for (i=0; i<arr.length; i++) {
-                if (arr.indexOf(a) !== -1) {
-                    arr[i] = arr1[i];
-                    return arr1[i];
-
-                } else {
-                        alert("Không tìm thấy ngôi sao")
-                        break;
+            let temp;
+            for (let i=0; i<arr.length; i++) {
+                if (a === arr[i]){
+                    temp = arr1[i];
+                    break;
                 }
+                temp="Không tìm thấy ngôi sao";
             }
+            return temp;
         }
-        alert(search(a));
+        alert(search());
     }
 </script>
 </body>

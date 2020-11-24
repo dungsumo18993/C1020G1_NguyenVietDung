@@ -18,7 +18,6 @@
     let discount;
     let quantityIncluded;
     let rendDays;
-    let totalPay;
     let check = false;
 
     let tempName ="";
@@ -51,6 +50,7 @@
                 check=true;
     }while (!check);
     check=false;
+
     do{
         birthday = prompt("Input birthday: ");
         if(birthday.charAt(2)==="/" && birthday.charAt(5)==="/"){

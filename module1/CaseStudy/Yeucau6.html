@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="Yeucau6.js"></script>
+<script>
+    let arrListCustomer = [];
+    while (true) {
+        function displayMainMenu() {
+            let choose = parseInt(prompt("1. Add New Costumer" + "\n" +
+                "2. Display Information Customer" + "\n" +
+                "3. Display total pay of customer" + "\n" +
+                "4. Edit Information Customer" + "\n" +
+                "5. Delete Customer" + "\n" +
+                "6. Add new Employees" + "\n" +
+                "7. Display information Employees" + "\n" +
+                "8. Slary of Employees" + "\n" +
+                "9. Exit"))
+
+            switch (choose) {
+                case 1 : {
+                    addNewCustomer();
+                    break;
+                }
+                case 2 : {
+                    displayCustomer();
+                    break;
+                }
+                case 3: {
+                    totalPays();
+                    break;
+                }
+                case 4: {
+                    editCustomer();
+                    break;
+                }
+                case 5: {
+                    deleteCustomer();
+                    break;
+                }
+                case 6: {
+                    addNewEmployees();
+                    break;
+                }
+                case 7: {
+                    displayEmployees();
+                    break;
+                }
+                case 8: {
+                    getSalary();
+                    break;
+                }
+                default: {
+                    alert("Failed")
+                    break;
+                }
+            }
+        }
+
+        function deleteCustomer() {
+            if (confirm("Bạn có chắc chắn muốn xóa Customer không?")) {
+                arrListCustomer.splice(1, 1);
+            }
+        }
+
+        function displayCustomer() {
+            let temp = '';
+            for (let i = 0; i < arrListCustomer.length; i++) {
+                temp = (i + 1) + ". Tên: " + arrListCustomer[i][0] + '\n' +
+                    (i + 2) + ". CMND: " + arrListCustomer[i][1] + '\n' +
+                    (i + 3) + ".BirthDay: " + arrListCustomer[i][2] + '\n' +
+                    (i + 4) + ". Email: " + arrListCustomer[i][3] + '\n' +
+                    (i + 5) + ". Địa chỉ: " + arrListCustomer[i][4] + '\n' +
+                    (i + 6) + ". Loại dịch vụ: " + arrListCustomer[i][5] + '\n' +
+                    (i + 7) + ". Loại phòng: " + arrListCustomer[i][6] + '\n' +
+                    (i + 8) + ". Loại khách hàng: " + arrListCustomer[i][7] + '\n' +
+                    (i + 9) + ". Giảm giá: " + arrListCustomer[i][8] + '\n' +
+                    (i + 10) + ". Số lượng đi kèm" + arrListCustomer[i][9] + '\n' +
+                    (i + 11) + ". Số ngày thuê: " + arrListCustomer[i][10]
+            }
+            alert(temp);
+            displayMainMenu();
+        }
+
+        function addNewCustomer() {
+            let check = false;
+            let name = prompt("Input name : ")
+            do {
+                let cmnd = prompt("Input cmnd : ")
+                if (cmnd.length == 9 && !isNaN(cmnd)) {
+                    check = true;
+                }
+                if (!check) {
+                    alert("CMND k đúng định dạng")
+                }
+            } while (!check);
+            check = false;
+
+            do {
+                birthday = prompt("Input birthday: ");
+                if (birthday.charAt(2) === "/" && birthday.charAt(5) === "/") {
+                    let day = birthday.substring(0, 2);
+                    let month = birthday.substring(3, 5);
+                    let year = birthday.substring(6, 10);
+                    if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                        day = Number.parseFloat(day);
+                        month = Number.parseFloat(month);
+                        year = Number.parseFloat(year);
+                        if (Number.isInteger(day) && Number.isInteger(month) && Number.isInteger(year)) {
+                            if (day < 32 && month < 13 && year > 1950) {
+                                check = true;
+                            }
+                        }
+                    }
+                }
+                if (!check) {
+                    alert("Ngày sinh không đúng định dạng");
+                }
+            } while (!check);
+            check = false;
+
+            do {
+                let countAt = 0;
+                let countDoc = 0;
+                email = prompt("Input email: ");
+                for (let i = 0; i < email.length; i++) {
+                    if (email.charAt(i) === "@") {
+                        countAt++;
+                        for (let j = i + 1; j < email.length; j++) {
+                            if (email.charAt(j) === ".") {
+                                countDoc++;
+                            }
+                        }
+                    }
+                }
+                if (countAt != 1 || countDoc < 1) {
+                    alert("Email nhập không đúng")
+                } else {
+                    check = true;
+                }
+            } while (!check);
+            check = false;
+
+            let address = prompt("Nhập địa chỉ : ");
+            let typeService = prompt("Nhập loại dịch vụ : ");
+            let typeRoom = prompt("Nhập loại phòng : ");
+            let typeCustomer = prompt("Nhập loại khách hàng : ");
+            let discount = prompt("Nhập mã giảm giá : ");
+            let quantityIncluded = prompt("Nhập số lượng đi kèm : ");
+            let rendDays = prompt("Nhập số ngày thuê : ");
+
+            let newArr = new Customer(name, cmnd, birthday, email, address, typeService, typeRoom, typeCustomer, discount, quantityIncluded, rendDays)
+            arrListCustomer.push(newArr);
+            alert("Bạn đã thêm thành công. ")
+        }
+
+        displayMainMenu();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let arrListCustomer=[];
+    while (true) {
+        function displayMainMenu() {
+            let choose = parseInt(prompt("1. Add New Costumer" + "\n" +
+                "2. Display Information Customer" + "\n" +
+                "3. Edit Information Customer" + "\n" +
+                "4. Delete Customer" + "\n" +
+                "5. Exit"))
+
+            switch (choose) {
+                case 1 : {
+                    addNewCustomer();
+                    break;
+                }
+                case 2 : {
+                    displayCustomer();
+                    break;
+                }
+                case 3: {
+                    editCustomer();
+                    break;
+                }
+                case 4: {
+                    deleteCustomer();
+                    break;
+                }
+                case 5: {
+                    break;
+                }
+                default:{
+                    alert("Failed")
+                    break;
+                }
+            }
+        }
+        function deleteCustomer() {
+            if(confirm("Bạn có chắc chắn muốn xóa Customer không?")){
+                arrListCustomer.splice(1,1);
+            }
+
+        }
+        function displayCustomer() {
+            let temp = '';
+            for (let i=0; i<arrListCustomer.length; i++) {
+                temp = (i+1)+". Tên: " + arrListCustomer[i][0] + '\n'+
+                    (i+2)+". CMND: " + arrListCustomer[i][1] + '\n'+
+                    (i+3)+".BirthDay: " + arrListCustomer[i][2] + '\n'+
+                    (i+4)+". Email: " + arrListCustomer[i][3] + '\n'+
+                    (i+5)+". Địa chỉ: " + arrListCustomer[i][4] + '\n'+
+                    (i+6)+". Loại dịch vụ: " + arrListCustomer[i][5] + '\n'+
+                    (i+7)+". Loại phòng: " + arrListCustomer[i][6] + '\n'+
+                    (i+8)+". Loại khách hàng: " + arrListCustomer[i][7] + '\n'+
+                    (i+9)+". Giảm giá: " + arrListCustomer[i][8] + '\n'+
+                    (i+10)+". Số lượng đi kèm" + arrListCustomer[i][9] + '\n'+
+                    (i+11)+". Số ngày thuê: " + arrListCustomer[i][10]
+            }
+            alert(temp);
+            displayMainMenu();
+        }
+
+        function addNewCustomer() {
+            let newArr = [];
+            let name = prompt("Nhập name : ")
+            let cmnd = prompt("Nhập cmnd : ")
+            let birthday = prompt("Nhập ngày sinh : ")
+            let email = prompt("Nhập Email : ");
+            let address = prompt("Nhập địa chỉ : ");
+            let typeService = prompt("Nhập loại dịch vụ : ");
+            let typeRoom = prompt("Nhập loại phòng : ");
+            let typeCustomer = prompt("Nhập loại khách hàng : ");
+            let discount = prompt("Nhập mã giảm giá : ");
+            let quantityIncluded =prompt("Nhập số lượng đi kèm : ");
+            let rendDays = prompt("Nhập số ngày thuê : ");
+
+            newArr.push(name);
+            newArr.push(cmnd);
+            newArr.push(birthday);
+            newArr.push(email);
+            newArr.push(address);
+            newArr.push(typeService);
+            newArr.push(typeRoom);
+            newArr.push(typeCustomer);
+            newArr.push(discount);
+            newArr.push(quantityIncluded);
+            newArr.push(rendDays);
+            arrListCustomer.push(newArr);
+            alert("Bạn đã thêm thành công. ")
+        }
+
+        displayMainMenu();
+    }
+</script>
+</body>
+</html>

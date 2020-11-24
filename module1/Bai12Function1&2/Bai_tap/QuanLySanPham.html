@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class Product {
+        constructor(id, name, price, description) {
+            this.id = id;
+            this.name= name;
+            this.price = price;
+            this.description = description;
+        }
+    }
+    function display() {
+        document.body.innerHTML="";
+        let temp="<button onclick='create()'>Add product</button>"
+        temp+= "<table border='1'>"
+        for(let i = 0;i<listProduct.length;i++) {
+            temp+="<tr>"
+            temp+="<td>"+listProduct[i].id+"</td>"
+            temp+="<td>"+listProduct[i].name+"</td>"
+            temp+="<td>"+listProduct[i].price+"</td>"
+            temp+="<td>"+listProduct[i].description+"</td>"
+            temp+="<td><button onclick='editProduct()'>Edit</button></td>"
+            temp+="<td><button onclick='deleteProduct("+i+")'>Delete</button></td>"
+            temp+="</tr>"
+        }
+        temp+="</table>"
+        document.writeln(temp);
+    }
+    function create() {
+        let temp ="Id: <input id='id'>";
+        temp +="Name: <input id='name'>";
+        temp +="Price: <input id='price'>";
+        temp +="Description<input id='description'>";
+        temp +="<button onclick='successAddProduct()'>Submit</button>"
+        document.writeln(temp);
+    }
+    function successAddProduct() {
+        let id = document.getElementById("id").value;
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let description = document.getElementById("description").value;
+        listProduct.push(new Product(id,name,price,description));
+        display();
+    }
+    function deleteProduct(index) {
+        if(confirm("Bạn có muốn xóa"+listProduct[index].name+ " này không?")){
+            listProduct.splice(index,1);
+        }
+        display();
+    }
+    let listProduct = [];
+    listProduct.push(new Product(1,"Samsung",1000000,"ĐIện thoại"))
+    listProduct.push(new Product(2,"Nokia",1000000,"ĐIện thoại"))
+    listProduct.push(new Product(3,"Iphone",1000000,"ĐIện thoại"));
+    display();
+</script>
+</body>
+</html>
