@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [];
+
+    class sotietkiem {
+        constructor(maso, loaitietkiem, ten, cmnd, ngaymo, sotien) {
+            this.maso = maso;
+            this.loaitietkiem = loaitietkiem;
+            this.ten = ten;
+            this.cmnd = cmnd;
+            this.ngaymo = ngaymo;
+            this.sotien = sotien;
+        }
+
+        getMaso() {
+            return this.maso;
+        }
+
+        setMaso(maso) {
+            this.maso = maso;
+        }
+
+        getLoaitietkiem() {
+            return this.loaitietkiem;
+        }
+
+        setLoaitietkiem(loai) {
+            this.loaitietkiem = loai;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+
+        setTen(ten) {
+            this.ten = ten;
+        }
+
+        getCmnd() {
+            return this.cmnd;
+        }
+
+        setCmnd(cmnd) {
+            this.cmnd = cmnd;
+        }
+
+        getNgaymo() {
+            return this.ngaymo;
+        }
+
+        setNgaymo(ngaymo) {
+            this.ngaymo = ngaymo;
+        }
+
+        getSotien() {
+            return this.sotien;
+        }
+
+        setSotien(sotien) {
+            this.sotien = sotien;
+        }
+    }
+
+    function menu() {
+        let choose = parseInt(prompt("1. Thêm Sổ tiết kiệm." + "\n2. Xóa" + "\n3. Thoát."))
+        switch (choose) {
+            case 1: {
+                themSTK();
+                break;
+            }
+            case 2: {
+                xoa();
+                break;
+            }
+            case 3: {
+                break;
+            }
+            default : {
+                alert("Failed")
+            }
+        }
+    }
+
+    function themSTK() {
+        let check=false;
+        let maso;
+        do {
+             maso = prompt("Nhập mã số :")
+        } while (maso.length>=6)
+
+        let loaitietkiem;
+        do {
+            let loaitietkiem = parseInt(prompt("Nhập loại tiết kiệm"))
+        } while (loaitietkiem>=11)
+
+        let ten;
+        do {
+            let ten=parseInt(prompt("Nhập tên"))
+        }while (ten.length>=30)
+
+
+        do {
+            let cmnd=parseInt(prompt("Nhập CMND: "))
+            if (cmnd.length == 9 && !isNaN(cmnd)) {
+                check = true;
+            }
+            if (!check) {
+                alert("CMND k đúng định dạng")
+            }
+        }while (!check)
+        check=false;
+
+        do {
+            ngaymoso = prompt("Input birthday: ");
+            if (ngaymoso.charAt(2) === "/" && ngaymoso.charAt(5) === "/") {
+                let ngay = ngaymoso.substring(0, 2);
+                let thang = ngaymoso.substring(3, 5);
+                let nam = ngaymoso.substring(6, 10);
+                if (!isNaN(ngay) && !isNaN(thang) && !isNaN(nam)) {
+                    ngay = Number.parseFloat(ngay);
+                    thang = Number.parseFloat(thang);
+                    nam = Number.parseFloat(nam);
+                    if (Number.isInteger(ngay) && Number.isInteger(thang) && Number.isInteger(nam)) {
+                        if (ngay < 32 && thang < 13 && nam > 1975) {
+                            check = true;
+                        }
+                    }
+                }
+            }
+            if (!check) {
+                alert("Ngày sinh không đúng định dạng");
+            }
+        }while (!check)
+        check=false;
+
+        do {
+            let sotien=parseInt(prompt("Nhập số tiên"))
+            if(!isNaN(sotien)){
+                check=true;
+            }
+        if(!check){
+            alert("Sai định dạng")
+        }
+        }while (!check)
+        check=false;
+    }
+
+    menu();
+</script>
+</body>
+</html>

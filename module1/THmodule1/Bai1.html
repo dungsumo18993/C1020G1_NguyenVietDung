@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n=parseInt(prompt("Nhập n: "))
+    if(n>50){
+        alert("Số phần tử phải nhỏ hơn 50");
+    }
+    let arr=[];
+    for(let i=0; i<n; i++){
+        arr.push(parseInt(prompt("Nhập các PT của mảng:")));
+    }
+    let arr1=[];
+
+    function isPrime(number) {
+        let i;
+        if (number<2){
+            return false;
+        }
+        for (i=2; i<=number; i++){
+            if(number%i == 0){
+                return false;
+            }
+            return true;
+        }
+
+    }
+    for(let i=0; i<arr.length; i++) {
+        if (isPrime(arr[i])) {
+            arr1.push(arr[i]);
+        }
+    }
+    // }
+    // if(n<=50){
+    //     let temp;
+    //     let count=0;
+    //     for(let i=0; i<arr.length; i++){
+    //         if(i<2){
+    //             temp=false;
+    //         }
+    //         for(let i=2;i<arr.length; i++){
+    //             if(arr[i]%i==0){
+    //                 temp=false;
+    //             }
+    //             count=arr[i];
+    //
+    //             temp=true;
+    //         }
+    //         arr1.push(arr[i]);
+    //     }
+    // }
+    alert(arr +"\n"+ arr1);
+</script>
+</body>
+</html>
