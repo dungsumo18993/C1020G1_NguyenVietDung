@@ -94,7 +94,7 @@ public class DocSoThanhChu {
                     ReadNum="Thirty ";
                     break;
                 case 4:
-                    ReadNum="Fourty ";
+                    ReadNum="Forty ";
                     break;
                 case 5:
                     ReadNum="Fifty ";
@@ -140,7 +140,7 @@ public class DocSoThanhChu {
                     ReadOne="eight";
                     break;
                 case 9:
-                    ReadOne="nine";
+                    ReadOne="Nine";
                 default:
                     ReadOne="";
             }

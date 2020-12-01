@@ -9,7 +9,7 @@ public class ChuyenDoiTienTe {
         Scanner x=new Scanner(System.in);
         System.out.print("Nhập tiền USD: ");
         usd=x.nextDouble();
-        double quydoi=usd*23000;
+        double quydoi=usd*vnd;
         System.out.print("Giá trị VND: "+quydoi);
     }
 }
