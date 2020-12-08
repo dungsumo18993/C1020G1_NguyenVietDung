@@ -1,4 +1,6 @@
-package _06_inheritance_.bai_tap;
+package _06_inheritance_.bai_tap.Point2DandPoint3D;
+
+import java.util.Arrays;
 
 public class Point2D {
     private float x;
@@ -33,7 +35,15 @@ public class Point2D {
         this.y=y;
     }
 
-    public float getXY(){
-        return 
+    public float[] getXY(){
+        float[] array = {getX(),getY()};
+        return array;
     }
+
+    @Override
+    public String toString() {
+        return "Point2D: " +
+                "x,y " + Arrays.toString(getXY());
+    }
+
 }
