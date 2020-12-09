@@ -2,7 +2,7 @@ package _07_abstract_interface_.thuc_hanh.TrienKhai_interface;
 
 import _06_inheritance_.bai_tap.Circle;
 
-public class ComparableCircle extends Circle implements Comparable {
+public class ComparableCircle extends Circle implements Comparable<ComparableCircle> {
     public ComparableCircle() {
     }
 
@@ -16,9 +16,16 @@ public class ComparableCircle extends Circle implements Comparable {
 
     @Override
     public int compareTo(ComparableCircle o) {
-        if (getRadius() > o.getRadius()) return 1;
-        else if (getRadius() < o.getRadius()) return -1;
-        else return 1;
+        if (getRadius() > o.getRadius()){
+            return 1;
+        }
+        else if (getRadius() < o.getRadius()){
+            return -1;
+        }
+        else {
+            return 1;
+        }
     }
+
 
 }

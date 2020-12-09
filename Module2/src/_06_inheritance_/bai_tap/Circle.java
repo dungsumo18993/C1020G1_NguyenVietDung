@@ -3,6 +3,7 @@ package _06_inheritance_.bai_tap;
 public class Circle {
     private double radius=1.0;
     private String color="red";
+    private boolean filler=true;
 
     public Circle() {
     }
@@ -13,9 +14,13 @@ public class Circle {
     }
 
     public Circle(double radius) {
+        this.radius = radius;
     }
 
     public Circle(double radius, String color, boolean filled) {
+        this.radius = radius;
+        this.color = color;
+        this.filler=filled;
     }
 
     public double getRadius() {
