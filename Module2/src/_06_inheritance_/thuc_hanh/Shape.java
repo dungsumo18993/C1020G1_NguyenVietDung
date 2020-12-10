@@ -1,7 +1,7 @@
 package _06_inheritance_.thuc_hanh;
 
 public class Shape {
-    private String color = "green";
+    private String color = "blue";
     private boolean filled = true;
 
     public Shape() {
@@ -28,12 +28,19 @@ public class Shape {
         this.filled = filled;
     }
 
+    public double getArea(){
+        return 0;
+    }
+
     @Override
     public String toString() {
         return "A Shape with color of "
                 + getColor()
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
+    }
+
+    public void resize(double randomPercent) {
     }
 //    public static class ShapeTest {
 //        public static void main(String[] args) {
