@@ -9,7 +9,7 @@ public class MyLinkedList {
     public MyLinkedList(Object data) {
         head = new Node(data);
     }
-    private class Node {
+    public class Node {
         private Node next;
         private Object data;
 
@@ -41,12 +41,12 @@ public class MyLinkedList {
         numNodes++;
     }
 
-    public Node get(int index){
+    public Object get(int index){
         Node temp=head;
         for(int i=0; i<index; i++) {
             temp = temp.next;
         }
-        return temp;
+        return temp.data;
     }
 
     public void printList() {
