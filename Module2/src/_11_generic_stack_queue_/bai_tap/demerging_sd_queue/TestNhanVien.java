@@ -33,11 +33,11 @@ public class TestNhanVien {
         }
 
         List<NhanVien> ketQua = new LinkedList<>();
-            if (!NU.isEmpty()) {
+        while (!NU.isEmpty()){
                 ketQua.add(NU.poll());
             }
 
-            if (!NAM.isEmpty()){
+        while (!NAM.isEmpty()){
                 ketQua.add(NAM.poll());
             }
 
