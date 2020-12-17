@@ -11,7 +11,7 @@ public class Main {
         Student student2 = new Student("Anh", 38, "HT" );
         Student student3 = new Student("Tung", 38, "HT" );
 
-        List<Student> lists = new ArrayList<Student>();
+        List<Student> lists = new ArrayList<>();
         lists.add(student);
         lists.add(student1);
         lists.add(student2);
@@ -21,8 +21,8 @@ public class Main {
             System.out.println(st.toString());
         }
         System.out.println("-----------------");
-        AgeComparator ageComparator = new AgeComparator();
-        Collections.sort(lists,ageComparator);
+
+        Collections.sort(lists,new AgeComparator());
         System.out.println("So sanh theo tuoi:");
         for(Student st : lists){
             System.out.println(st.toString());

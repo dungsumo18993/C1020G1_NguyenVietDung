@@ -17,7 +17,7 @@ public class TestProduct {
         productManager.add(sp4);
         productManager.add(sp5);
 
-        Collections.sort(productManager.productList, new GiaTangDan());
+        Collections.sort(productManager.productList, new GiaGiamDan());
         for (Product element : productManager.productList){
             System.out.println(element);
         }
