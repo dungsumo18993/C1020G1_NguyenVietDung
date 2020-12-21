@@ -1,19 +1,20 @@
 package _14_thuat_toan_sap_xep_.thuc_hanh.tt_sx_noibot;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BubbleSortByStep {
     public static void bubbleSortByStep(int[] list) {
         boolean needNextPass = true;
-        for (int k = 1; k < list.length && needNextPass; k++) {
+        for (int i = 1; i < list.length && needNextPass; i++) {
             needNextPass = false;
-            for (int i = 0; i < list.length - k; i++) {
-                if (list[i] > list[i + 1]) {
+            for (int j = 0; j < list.length - i; j++) {
+                if (list[j] > list[j + 1]) {
                     /* Swap list[i] with list[i + 1] */
-                    System.out.println("Swap " + list[i] + " with " + list[i + 1]);
-                    int temp = list[i];
-                    list[i] = list[i + 1];
-                    list[i + 1] = temp;
+                    System.out.println("Swap " + list[j] + " with " + list[j + 1]);
+                    int temp = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = temp;
 
                     needNextPass = true; /* Next pass still needed */
                 }
@@ -24,7 +25,7 @@ public class BubbleSortByStep {
                 break;
             }
             /* Show the list after sort */
-            System.out.print("List after the  " + k + " sort: ");
+            System.out.print("List after the  " + i + " sort: ");
             for (int j = 0; j < list.length; j++) {
                 System.out.print(list[j] + "\t");
             }
@@ -48,5 +49,6 @@ public class BubbleSortByStep {
 
         System.out.println("\nBegin sort processing...");
         bubbleSortByStep(list);
+
     }
 }
