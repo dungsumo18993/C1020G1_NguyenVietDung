@@ -26,13 +26,23 @@ public class Room extends Services {
 
     @Override
     public String toString() {
-        return "Room{" +
-                " Dịch Vụ Miễn Phí Đi Kèm: " + dichVuMienPhiDiKem + '\'' +
-                '}';
+        return  this.getId() +
+                "," + this.getTenDichVu()+
+                ","+ this.getDienTichSuDung()+
+                ","+ this.getChiPhiThue()+
+                ","+ this.getSoLuongNguoi()+
+                ","+ this.getKieuThue()+
+                "," + dichVuMienPhiDiKem ;
     }
 
     @Override
     public void showInfor() {
-        System.out.println(this.toString());
+        System.out.println("Id: " + this.getId() +
+                ", Tên Dịch Vụ: " + this.getTenDichVu()+
+                ", Diện tích Sử Dụng: "+ this.getDienTichSuDung()+
+                ", Chi Phí Thuê: "+ this.getChiPhiThue()+
+                ", Số Lượng Người: "+ this.getSoLuongNguoi()+
+                ", Kiểu Thuê: "+ this.getKieuThue()+
+                ", Dịch Vụ Miễn Phí Đi Kèm: " + dichVuMienPhiDiKem);
     }
 }

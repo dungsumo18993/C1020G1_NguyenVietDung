@@ -58,16 +58,29 @@ public class Villa extends Services {
 
     @Override
     public String toString() {
-        return "Villa{" +
-                "Tiêu Chuẩn Phòng: '" + tieuChuanPhong + '\'' +
-                ", Tiện Nghi Khác: '" + tienNghiKhac + '\'' +
-                ", Diện Tích Hồ Bơi: " + dienTichHoBoi +
-                ", Số Tầng: " + soTang +
-                '}';
+        return   this.getId() +
+                "," + this.getTenDichVu()+
+                ","+ this.getDienTichSuDung()+
+                ","+ this.getChiPhiThue()+
+                ","+ this.getSoLuongNguoi()+
+                ","+ this.getKieuThue()+
+                "," + tieuChuanPhong +
+                "," + tienNghiKhac +
+                "," + dienTichHoBoi +
+                "," + soTang;
     }
 
     @Override
     public void showInfor() {
-        System.out.println(this.toString());
+        System.out.println("Id: " + this.getId() +
+                ", Tên Dịch Vụ: " + this.getTenDichVu()+
+                ", Diện tích Sử Dụng: "+ this.getDienTichSuDung()+
+                ", Chi Phí Thuê: "+ this.getChiPhiThue()+
+                ", Số Lượng Người: "+ this.getSoLuongNguoi()+
+                ", Kiểu Thuê: "+ this.getKieuThue()+
+                ", Tiêu Chuẩn Phòng: " + tieuChuanPhong + 
+                ", Tiện Nghi Khác: " + tienNghiKhac +
+                ", Diện Tích Hồ Bơi: "+ dienTichHoBoi +
+                ", Số Tầng: " + soTang);
     }
 }
