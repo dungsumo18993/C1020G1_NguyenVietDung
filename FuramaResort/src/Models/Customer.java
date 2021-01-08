@@ -1,8 +1,6 @@
 package Models;
 
-import java.util.Comparator;
-
-public class Customer implements Comparable<Customer>  {
+public class Customer implements Comparable<Customer> {
     private String fullName;
     private String birthDay;
     private String gender;
@@ -124,7 +122,7 @@ public class Customer implements Comparable<Customer>  {
     }
 
     public void showInfo(){
-        System.out.println("Full Name "+fullName +
+        System.out.println("Full Name: "+fullName +
                 ", BirthDay: " + birthDay +
                 ", Gender: " + gender +
                 ", IDCard: " + idCard +
@@ -142,4 +140,5 @@ public class Customer implements Comparable<Customer>  {
             return this.getFullName().compareTo(o.getFullName());
         }
     }
+
 }

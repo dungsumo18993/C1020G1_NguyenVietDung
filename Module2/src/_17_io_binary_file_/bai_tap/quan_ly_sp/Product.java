@@ -59,12 +59,18 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "Product{" +
-                "productId=" + productId +
-                ", productName='" + productName + '\'' +
-                ", manuFacturer='" + manuFacturer + '\'' +
-                ", productPrice=" + productPrice +
-                ", descriptionsOther='" + otherDescription + '\'' +
-                '}';
+        return productId +
+                "," + productName +
+                "," + manuFacturer +
+                "," + productPrice +
+                "," + otherDescription;
+    }
+
+    public void showInfo(){
+        System.out.println("Product Id=" + productId +
+                ", Product Name=" + productName +
+                ", Manufacture=" + manuFacturer +
+                ", ProductPrice=" + productPrice +
+                ", DescriptionsOther=" + otherDescription);
     }
 }

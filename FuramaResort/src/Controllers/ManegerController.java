@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class ManegerController {
     private static Scanner scanner = new Scanner(System.in);
 
-
     public static String nhapIdVilla(){
         System.out.println("Nhập Id: ");
         String idVilla=scanner.nextLine();
@@ -22,7 +21,8 @@ public class ManegerController {
             if (Validate.checkIdVilla(idVilla)){
                 idVilla=scanner.nextLine();
             } else {
-                System.out.println("Id không hợp lệ, vui lòng nhập lại!!");
+                System.err.println("Id không hợp lệ, vui lòng nhập lại!!");
+                System.out.println("Nhập Id: ");
                 idVilla=scanner.nextLine();
             }
         }
@@ -31,13 +31,14 @@ public class ManegerController {
 
     public static String nhapIdHouse(){
         System.out.println("Nhập Id: ");
-        String idHouse=scanner.nextLine();
+        String idHouse=scanner.next();
         while (!Validate.checkIdHouse(idHouse)){
             if (Validate.checkIdHouse(idHouse)){
-                idHouse=scanner.nextLine();
+                idHouse=scanner.next();
             } else {
-                System.out.println("Id không hợp lệ, vui lòng nhập lại!!");
-                idHouse=scanner.nextLine();
+                System.err.println("Id không hợp lệ, vui lòng nhập lại!!");
+                System.out.println("Nhập Id: ");
+                idHouse=scanner.next();
             }
         }
         return idHouse;
@@ -45,13 +46,14 @@ public class ManegerController {
 
     public static String nhapIdRoom(){
         System.out.println("Nhập Id: ");
-        String idRoom=scanner.nextLine();
+        String idRoom=scanner.next();
         while (!Validate.checkIdRoom(idRoom)){
             if (Validate.checkIdRoom(idRoom)){
-                idRoom=scanner.nextLine();
+                idRoom=scanner.next();
             } else {
-                System.out.println("Id không hợp lệ, vui lòng nhập lại!!");
-                idRoom=scanner.nextLine();
+                System.err.println("Id không hợp lệ, vui lòng nhập lại!!");
+                System.out.println("Nhập Id: ");
+                idRoom=scanner.next();
             }
         }
         return idRoom;
@@ -61,7 +63,8 @@ public class ManegerController {
         System.out.println("Nhập Tên Dịch Vụ: ");
         String tenDichVu=scanner.next();
         while (!Validate.checkTenDichVu(tenDichVu)){
-            System.out.println("Tên Dịch Vụ không hợp lệ, vui lòng nhập lại!!");
+            System.err.println("Tên Dịch Vụ không hợp lệ, vui lòng nhập lại!!");
+            System.out.println("Nhập Tên Dịch Vụ: ");
             tenDichVu=scanner.next();
         }
         return tenDichVu;
@@ -74,14 +77,14 @@ public class ManegerController {
             try {
                 double dienTich1 = scanner.nextDouble();
                 if (dienTich1 < 30) {
-                    System.out.println("Diện tích phải lớn hơn 30m2!!");
+                    System.err.println("Diện tích phải lớn hơn 30m2!!");
                     dienTich = 0.0;
                 } else {
                     dienTich = dienTich1;
                 }
             }
             catch (InputMismatchException e){
-                System.out.println("Diện tích phải là số!!");
+                System.err.println("Diện tích phải là số!!");
                 scanner.nextLine();
             }
         } while (dienTich==0.0);
@@ -93,7 +96,8 @@ public class ManegerController {
         System.out.println("Nhập Chi Phí Thuê: ");
         double chiPhi= scanner.nextDouble();
         while (chiPhi<=0){
-            System.out.println("Chi Phí phải là số dương!!");
+            System.err.println("Chi Phí phải là số dương!!");
+            System.out.println("Nhập Chi Phí Thuê: ");
             chiPhi=scanner.nextDouble();
         }
         return chiPhi;
@@ -103,7 +107,8 @@ public class ManegerController {
         System.out.println("Nhập Số Lượng Người: ");
         int soLuongNguoi= scanner.nextInt();
         while (soLuongNguoi<0 || soLuongNguoi>20){
-            System.out.println("Số lượng người không hợp lệ, vui lòng nhập lại!!");
+            System.err.println("Số lượng người không hợp lệ, vui lòng nhập lại!!");
+            System.out.println("Nhập Số Lượng Người: ");
             soLuongNguoi=scanner.nextInt();
         }
         return soLuongNguoi;
@@ -113,7 +118,8 @@ public class ManegerController {
         System.out.println("Nhập Kiểu Thuê: ");
         String kieuThue= scanner.next();
         while (!Validate.checkKieuThue(kieuThue)){
-            System.out.println("Kiểu thuê không hợp lệ, vui lòng nhập lại!!");
+            System.err.println("Kiểu thuê không hợp lệ, vui lòng nhập lại!!");
+            System.out.println("Nhập Kiểu Thuê: ");
             kieuThue=scanner.next();
         }
         return kieuThue;
@@ -123,7 +129,8 @@ public class ManegerController {
         System.out.println("Nhập Tiêu Chuẩn Phòng: ");
         String tieuChuanPhong= scanner.next();
         while (!Validate.checkTieuChuan(tieuChuanPhong)){
-            System.out.println("Tiêu Chuẩn không hợp lệ, vui lòng nhập lại!!");
+            System.err.println("Tiêu Chuẩn không hợp lệ, vui lòng nhập lại!!");
+            System.out.println("Nhập Tiêu Chuẩn Phòng: ");
             tieuChuanPhong=scanner.next();
         }
         return tieuChuanPhong;
@@ -138,7 +145,8 @@ public class ManegerController {
         System.out.println("Nhập Diện Tích Hồ Bơi: ");
         double dienTichHoBoi=scanner.nextDouble();
         do {
-            System.out.println("Diện tích phải lớn hơn 30m2!!");
+            System.err.println("Diện tích phải lớn hơn 30m2!!");
+            System.out.println("Nhập Diện Tích Hồ Bơi: ");
             dienTichHoBoi=scanner.nextDouble();
         }while (dienTichHoBoi<30);
         return dienTichHoBoi;
@@ -148,7 +156,8 @@ public class ManegerController {
         System.out.println("Nhập số tầng: ");
         int soTang= scanner.nextInt();
         while (soTang<=0){
-            System.out.println("Số tầng không hợp lê, vui lòng nhập lại!!");
+            System.err.println("Số tầng không hợp lê, vui lòng nhập lại!!");
+            System.out.println("Nhập số tầng: ");
             soTang=scanner.nextInt();
         }
         return soTang;
@@ -158,7 +167,8 @@ public class ManegerController {
         System.out.println("Nhập Dịch Vụ Miễn Phí Đi Kèm: ");
         String dichVuDiKem= scanner.next();
         while (!Validate.checkDichVuDiKem(dichVuDiKem)){
-            System.out.println("Dịch vụ không hợp lệ, vui lòng nhập lại!!");
+            System.err.println("Dịch vụ không hợp lệ, vui lòng nhập lại!!");
+            System.out.println("Nhập Dịch Vụ Miễn Phí Đi Kèm: ");
             dichVuDiKem=scanner.next();
         }
         return dichVuDiKem;

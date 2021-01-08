@@ -47,7 +47,6 @@ public class CustomerController {
 
         System.out.println("Nhập ngày sinh: ");
         String ngaySinh=scanner.next();
-        checkBirthDay(ngaySinh);
         while (!checkBirthDay(ngaySinh)){
             System.err.println(new BirthDayException());
             System.out.println("Nhập ngày sinh: ");

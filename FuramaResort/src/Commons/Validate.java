@@ -5,7 +5,7 @@ public class Validate {
     public static final String ID_VILLA_REGEX="SVVL-\\d{4}";
     public static final String ID_HOUSE_REGEX="SVHO-\\d{4}";
     public static final String ID_ROOM_REGEX="SVRO-\\d{4}";
-    public static final String TENDICHVU_REGEX="(Spa|Pool|Bar|Casino|Golf)";
+    public static final String TENDICHVU_REGEX="[A-Z][a-z]+";
     public static final String DICHVUDIKEM_REGEX="(massage|karaoke|food|drink|car)";
     public static final String KIEUTHUE_REGEX="(Day|Month|Year|Hours)";
     public static final String TIEUCHUAN_REGEX="(Vip|Medium|Normal)";
