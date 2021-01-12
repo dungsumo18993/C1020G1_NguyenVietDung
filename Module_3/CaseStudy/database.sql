@@ -22,9 +22,6 @@ tenbophan varchar(50)
 create table nhanvien (
 id_nhanvien int not null auto_increment primary key,
 hoten varchar(50),
-id_vitri int,
-id_trinhdo int,
-id_bophan int,
 ngaysinh date,
 cmnd varchar(50),
 luong int(50),
@@ -112,5 +109,6 @@ dichvu_id_dichvudikem int,
 foreign key (dichvu_id_dichvudikem) references dichvudikem (id_dichvudikem),
 soluong int
 );
+
 
 
