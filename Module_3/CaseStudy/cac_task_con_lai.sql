@@ -125,4 +125,74 @@ from hopdong
 inner join hopdongchitiet on hopdong.id_hopdong = hopdongchitiet.hopdong_id_hopdong
 group by hopdong.id_hopdong;
 
+-- Yêu cầu 11: Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có
+-- TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Ngãi”.
+select dichvudikem.id_dichvudikem, dichvudikem.tendichvudikem, dichvudikem.gia, dichvudikem.trangthaikhadung
+from dichvudikem
+inner join hopdongchitiet on dichvudikem.id_dichvudikem = hopdongchitiet.dichvu_id_dichvudikem
+inner join hopdong on hopdongchitiet.hopdong_id_hopdong = hopdong.id_hopdong
+inner join khachhang on hopdong.khachhang_id_khachhang = khachhang.id_khachhang
+inner join loaikhach on khachhang.loaikhach_id_loaikhach = loaikhach.id_loaikhach
+where khachhang.diachi in ('Vinh','Quảng Ngãi') and loaikhach.tenloaikhach = 'Diamond';
+
+-- Yêu cầu 12: Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem 
+-- (được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019
+-- nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019
+select hopdong.id_hopdong, nhanvien.hoten, khachhang.hoten, khachhang.sdt, dichvu.tendichvu, hopdong.tiendatcoc, count(hopdongchitiet.dichvu_id_dichvudikem) so_lan_su_dung
+from hopdong
+inner join nhanvien on hopdong.nhanvien_id_nhanvien = nhanvien.id_nhanvien
+inner join khachhang on hopdong.khachhang_id_khachhang = khachhang.id_khachhang
+inner join hopdongchitiet on hopdong.id_hopdong = hopdongchitiet.hopdong_id_hopdong
+inner join dichvudikem on hopdongchitiet.dichvu_id_dichvudikem = dichvudikem.id_dichvudikem
+inner join dichvu on hopdong.dichvu_id_dichvu = dichvu.id_dichvu
+where not exists (select hopdong.id_hopdong where hopdong.ngaylamhopdong between "2019-01-01" and "2019-06-31")
+and
+exists (select hopdong.id_hopdong where hopdong.ngaylamhopdong between "2019-09-01" and "2019-12-31");
+
+-- Yêu cầu 13: Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng.
+-- (Lưu ý là có thể có nhiều dịch vụ có số lần sử dụng nhiều như nhau).
+create temporary table temp
+select dichvudikem.tendichvudikem, count(hopdongchitiet.dichvu_id_dichvudikem) so_lan_su_dung
+from hopdongchitiet
+inner join dichvudikem on dichvudikem.id_dichvudikem = hopdongchitiet.dichvu_id_dichvudikem
+group by dichvudikem.tendichvudikem;
+
+select * from temp;
+
+create temporary table temp1
+select max(temp.so_lan_su_dung) max_so_lan_su_dung
+from temp;
+
+select * from temp1;
+
+select temp.tendichvudikem, temp.so_lan_su_dung 
+from temp
+inner join temp1 on temp1.max_so_lan_su_dung = temp.so_lan_su_dung;
+
+drop temporary table temp;
+drop temporary table temp1;
+
+-- Yêu cầu 14: Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất.
+-- Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
+
+select hopdong.id_hopdong, loaidichvu.tenloaidichvu, dichvudikem.tendichvudikem, count(hopdongchitiet.dichvu_id_dichvudikem) so_lan_su_dung
+from hopdong
+inner join dichvu on dichvu.id_dichvu = hopdong.dichvu_id_dichvu
+inner join loaidichvu on loaidichvu.id_loaidichvu = dichvu.loaidichvu_id_loaidichvu
+inner join hopdongchitiet on hopdong.id_hopdong = hopdongchitiet.hopdong_id_hopdong
+inner join dichvudikem on dichvudikem.id_dichvudikem = hopdongchitiet.dichvu_id_dichvudikem
+group by dichvudikem.tendichvudikem
+having so_lan_su_dung = 1;
+
+-- Yêu cầu 15: Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi
+-- mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
+select nhanvien.id_nhanvien, nhanvien.hoten, nhanvien.sdt, nhanvien.diachi, trinhdo.trinhdo, bophan.tenbophan, count(hopdong.nhanvien_id_nhanvien) so_lan_lam_hop_dong
+from nhanvien
+inner join trinhdo on nhanvien.trinhdo_id_trinhdo = trinhdo.id_trinhdo
+inner join bophan on nhanvien.bophan_id_bophan = bophan.id_bophan
+inner join hopdong on nhanvien.id_nhanvien = hopdong.nhanvien_id_nhanvien
+where hopdong.ngaylamhopdong between "2018-01-01" and "2019-12-31"
+group by nhanvien.hoten
+having so_lan_lam_hop_dong <= 3;
+
 
