@@ -195,4 +195,45 @@ where hopdong.ngaylamhopdong between "2018-01-01" and "2019-12-31"
 group by nhanvien.hoten
 having so_lan_lam_hop_dong <= 3;
 
+-- Yêu cầu 16: Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
+delete from nhanvien
+where nhanvien.id_nhanvien not in (
+select danh_sach.id_nhanvien
+from (
+		select nhanvien.id_nhanvien
+		from nhanvien
+			left join hopdong on nhanvien.id_nhanvien = hopdong.nhanvien_id_nhanvien
+		where year(hopdong.ngaylamhopdong) in ("2017","2018","2019")
+		group by nhanvien.id_nhanvien ) as danh_sach
+);
 
+-- Yêu cầu 17: Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
+-- chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+update khachhang
+set khachhang.id_khachhang = 1
+where khachhang.id_khachhang = 2 and khachhang.id_khachhang in (
+select hopdong.khachhang_id_khachhang
+from hopdong 
+where hopdong.tongtien >= 1000 and hopdong.ngaylamhopdong between "2019-01-01" and "2019-12-31"
+);
+
+-- Yêu cầu 18: Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).
+delete from khachhang
+where khachhang.id_khachhang not in (
+select hopdong.khachhang_id_khachhang
+from hopdong
+where year(hopdong.ngaylamhopdong) < 2016
+);
+
+-- Yêu cầu 19: Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
+update dichvudikem
+set dichvudikem.gia = dichvudikem.gia * 2
+where dichvudikem.id_dichvudikem in (
+	select hopdongchitiet.dichvu_id_dichvudikem
+    from hopdongchitiet
+    inner join hopdong on hopdongchitiet.hopdong_id_hopdong = hopdong.id_hopdong
+    where year(hopdong.ngaylamhopdong) = "2019"
+    group by hopdongchitiet.dichvu_id_dichvudikem
+    having count(hopdongchitiet.dichvu_id_dichvudikem) > 10
+    );
+    
