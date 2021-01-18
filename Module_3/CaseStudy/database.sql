@@ -82,11 +82,14 @@ trangthai varchar(50)
 create table hopdong(
 id_hopdong int not null primary key,
 nhanvien_id_nhanvien int,
-foreign key (nhanvien_id_nhanvien) references nhanvien (id_nhanvien),
+foreign key (nhanvien_id_nhanvien) references nhanvien (id_nhanvien)
+on delete cascade,
 khachhang_id_khachhang int,
-foreign key (khachhang_id_khachhang) references khachhang (id_khachhang),
+foreign key (khachhang_id_khachhang) references khachhang (id_khachhang)
+on delete cascade,
 dichvu_id_dichvu int,
-foreign key (dichvu_id_dichvu) references dichvu (id_dichvu),
+foreign key (dichvu_id_dichvu) references dichvu (id_dichvu)
+on delete cascade,
 ngaylamhopdong date,
 ngayketthuc date,
 tiendatcoc int,
@@ -104,7 +107,8 @@ trangthaikhadung varchar(50)
 create table hopdongchitiet(
 id_hopdongchitiet int not null primary key,
 hopdong_id_hopdong int,
-foreign key (hopdong_id_hopdong) references hopdong (id_hopdong),
+foreign key (hopdong_id_hopdong) references hopdong (id_hopdong)
+on delete cascade,
 dichvu_id_dichvudikem int,
 foreign key (dichvu_id_dichvudikem) references dichvudikem (id_dichvudikem),
 soluong int

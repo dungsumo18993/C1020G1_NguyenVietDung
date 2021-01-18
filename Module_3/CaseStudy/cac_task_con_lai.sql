@@ -198,28 +198,27 @@ having so_lan_lam_hop_dong <= 3;
 -- Yêu cầu 16: Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
 delete from nhanvien
 where nhanvien.id_nhanvien not in (
-select danh_sach.id_nhanvien
-from (
-		select nhanvien.id_nhanvien
-		from nhanvien
-			left join hopdong on nhanvien.id_nhanvien = hopdong.nhanvien_id_nhanvien
-		where year(hopdong.ngaylamhopdong) in ("2017","2018","2019")
-		group by nhanvien.id_nhanvien ) as danh_sach
+select hopdong.nhanvien_id_nhanvien
+from hopdong
+where year(hopdong.ngaylamhopdong) in ("2017","2018","2019")
+group by hopdong.nhanvien_id_nhanvien
 );
 
 -- Yêu cầu 17: Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond, 
 -- chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
 update khachhang
-set khachhang.id_khachhang = 1
-where khachhang.id_khachhang = 2 and khachhang.id_khachhang in (
+set khachhang.loaikhach_id_loaikhach = 1
+where khachhang.loaikhach_id_loaikhach = 3 and khachhang.loaikhach_id_loaikhach in (
 select hopdong.khachhang_id_khachhang
 from hopdong 
-where hopdong.tongtien >= 1000 and hopdong.ngaylamhopdong between "2019-01-01" and "2019-12-31"
+where hopdong.ngaylamhopdong between "2019-01-01" and "2019-12-31"
+group by hopdong.khachhang_id_khachhang
+having sum(hopdong.tongtien) >= 1000
 );
 
 -- Yêu cầu 18: Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràng buộc giữa các bảng).
 delete from khachhang
-where khachhang.id_khachhang not in (
+where khachhang.id_khachhang in (
 select hopdong.khachhang_id_khachhang
 from hopdong
 where year(hopdong.ngaylamhopdong) < 2016
@@ -236,4 +235,77 @@ where dichvudikem.id_dichvudikem in (
     group by hopdongchitiet.dichvu_id_dichvudikem
     having count(hopdongchitiet.dichvu_id_dichvudikem) > 10
     );
+    
+-- Yêu cầu 20: Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, thông tin hiển thị bao gồm
+-- ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi.
+select nhanvien.id_nhanvien, nhanvien.hoten, nhanvien.email, nhanvien.sdt, nhanvien.ngaysinh, nhanvien.diachi
+from nhanvien
+union all
+select khachhang.id_khachhang, khachhang.hoten, khachhang.email, khachhang.sdt, khachhang.ngaysinh, khachhang.diachi
+from khachhang;
+
+-- Task 21: Tạo khung nhìn có tên là V_NHANVIEN để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu”
+-- và đã từng lập hợp đồng cho 1 hoặc nhiều Khách hàng bất kỳ  với ngày lập hợp đồng là “12/12/2019”
+create view v_nhanvien as
+select nhanvien.id_nhanvien, nhanvien.hoten, nhanvien.ngaysinh, nhanvien.cmnd, nhanvien.sdt, nhanvien.email, nhanvien.diachi
+from nhanvien
+inner join hopdong on hopdong.nhanvien_id_nhanvien = nhanvien.id_nhanvien
+where nhanvien.diachi = "Hải Châu" and hopdong.ngaylamhopdong = "2019/12/12";
+
+select *
+from v_nhanvien;
+
+-- Task 22: Thông qua khung nhìn V_NHANVIEN thực hiện cập nhật địa chỉ thành “Liên Chiểu” đối với tất cả các Nhân viên được nhìn thấy bởi khung nhìn này.
+update v_nhanvien
+set diachi = "Liên Chiểu";
+
+-- Task 23: Tạo Store procedure Sp_1 Dùng để xóa thông tin của một Khách hàng nào đó với Id Khách hàng được truyền vào như là 1 tham số của Sp_1
+delimiter //
+create procedure sp_1(id int)
+begin
+	delete from khachhang
+    where khachhang.id_khachhang = id;
+end;
+// delimiter ;
+
+call sp_1(5);
+
+-- Task 24: Tạo Store procedure Sp_2 Dùng để thêm mới vào bảng HopDong với yêu cầu Sp_2 phải thực hiện kiểm tra
+-- tính hợp lệ của dữ liệu bổ sung, với nguyên tắc không được trùng khóa chính và đảm bảo toàn vẹn tham chiếu đến các bảng liên quan
+delimiter //
+create procedure sp_2 (
+id_hop_dong int,
+id_nhan_vien int,
+id_khach_hang int,
+id_dich_vu int,
+ngay_lam_hop_dong date,
+ngay_ket_thuc date,
+tien_dat_coc int,
+tong_tien int)
+begin
+if id_hop_dong in (
+	select hopdong.id_hopdong
+	from hopdong ) then
+	select "id hợp đồng đã bị trùng";
+elseif id_nhan_vien not in (
+	select nhanvien.id_nhanvien
+    from nhanvien ) then
+	select "id nhân viên không tồn tại";
+elseif id_khach_hang not in (
+	select khachhang.id_khachhang
+	from khachhang ) then
+	select "id khách hàng không tồn tại";
+elseif id_dich_vu not in (
+	select dichvu.id_dichvu
+	from dichvu ) then 
+	select "id dịch vụ không tồn tại";
+else
+	insert into hopdong
+	values(id_hop_dong, id_nhan_vien, id_khach_hang, id_dich_vu, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, tong_tien);
+end if;
+end;
+// delimiter ;
+
+call sp_2 (3,3,1,1,"2020-02-12","2020-04-14",400,1000);
+
     
