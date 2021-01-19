@@ -1,0 +1,27 @@
+.ac {
+    background: #1c1675;
+}
+.ab {
+    display: inline;
+    color: white;
+}
+.ad {
+    background: #c9cbc0;
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+img:hover {
+    width: 102%;
+    height: 102%;
+}
+td {
+    padding-left: 15px;
+}
+.label {
+    float: right;
+    margin-right: 370px;
+}

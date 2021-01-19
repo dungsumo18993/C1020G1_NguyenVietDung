@@ -71,7 +71,7 @@ select dichvu.id_dichvu, dichvu.tendichvu, dichvu.dientich, dichvu.songuoitoida,
 from dichvu
 join loaidichvu on dichvu.loaidichvu_id_loaidichvu = loaidichvu.id_loaidichvu
 where exists (
-select *
+select hopdong.id_hopdong
 from hopdong
 where year(hopdong.ngaylamhopdong) = "2018" and hopdong.dichvu_id_dichvu = dichvu.id_dichvu)
 and not exists (
