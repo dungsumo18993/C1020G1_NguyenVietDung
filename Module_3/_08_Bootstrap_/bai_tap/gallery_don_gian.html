@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo gallery đơn giản sử dụng Bootstrap</title>
+    <link rel="stylesheet" href="../thuc_hanh/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+<h2>Responsive Image Gallery</h2>
+<h4>Resize the browser window to see the effect.</h4>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="content">
+                <img src="images/anh1.jpg">
+                <p>Add a description of the image here</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="content">
+                <img src="images/anh2.jpg" alt="">
+                <p>Add a description of the image here</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="content">
+                <img src="images/anh3.jpg" alt="" width="467" height="300">
+                <p>Add a description of the image here</p>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="content">
+                <img src="images/anh4.jpg" alt="" width="467" height="300">
+                <p>Add a description of the image here</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="footer">
+                This example use media queries to re-arrange the images on different screen sizes: for screens larger
+                than 700px wide, it will show four images side by side, for screens smaller than 700px, it will show two
+                images side by side. For screens smaller than 500px, the images will stack vertically (100%).
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../thuc_hanh/js/jquery-3.5.1.min.js"></script>
+<script src="../thuc_hanh/js/bootstrap.min.js"></script>
+</body>
+</html>
