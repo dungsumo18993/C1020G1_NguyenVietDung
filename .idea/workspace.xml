@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d54040e-373e-4234-bdda-b7aecfec64e9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module_3/CaseStudy/cac_task_con_lai.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Module_3/CaseStudy/cac_task_con_lai.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/module1/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module_3/_09_web_overview_/thuc_hanh/Tu_dien_don_gian/src/TranslationServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module_3/_09_web_overview_/thuc_hanh/UD_chuyen_doi_tien_te/src/ConverterServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module_3/_09_web_overview_/thuc_hanh/src/LoginServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module_3/src/ServerTimeServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module_3/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/Module_3/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module_3/.idea/Module_3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module_3/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Module_3/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module_3/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Module_3/.idea/modules.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +30,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Module_3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -39,6 +44,7 @@
       <updated>1609832617781</updated>
       <workItem from="1609832621667" duration="281000" />
       <workItem from="1611027112306" duration="376000" />
+      <workItem from="1611498916854" duration="24000" />
     </task>
     <servers />
   </component>
@@ -46,13 +52,13 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="549" y="155" key="FileChooserDialogImpl" timestamp="1611027486636">
+    <state x="549" y="155" key="FileChooserDialogImpl" timestamp="1611498928945">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611027486636" />
-    <state x="209" y="34" key="new project wizard" timestamp="1609832900979">
+    <state x="549" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611498928945" />
+    <state x="209" y="0" key="new project wizard" timestamp="1611498939013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="209" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1609832900979" />
+    <state x="209" y="0" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1611498939013" />
   </component>
 </project>
