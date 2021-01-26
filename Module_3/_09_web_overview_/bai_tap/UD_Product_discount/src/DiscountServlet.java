@@ -14,11 +14,10 @@ public class DiscountServlet extends HttpServlet {
         double discountAmount = price * discount * 0.01;
         double discountPrice = price - discountAmount;
 
-        PrintWriter writer = response.getWriter();
-        writer.println("<html>");
-        writer.println("<h1> Discount Amount: " + discountAmount + "</h1>");
-        writer.println("<h1>Discount Price: " + discountPrice + "</h1>");
-        writer.println("</html>");
+        request.setAttribute("discountA",discountAmount);
+        request.setAttribute("discountP",discountPrice);
+
+        request.getRequestDispatcher("discount.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
