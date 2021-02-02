@@ -41,6 +41,39 @@ insert into Permision(name)
         
 DELIMITER //
 
+create procedure select_all_user()
+begin
+	select *
+    from users;
+end;
+
+// delimiter ;
+
+delimiter //
+
+create procedure update_user(id int, `name` varchar(45), email varchar(45), city varchar(45))
+begin
+	update users
+    set users.name = `name`,
+		users.email = email,
+        users.city = city
+        where users.id = id;
+end;
+
+// delimiter ;
+
+delimiter //
+
+create procedure delete_user(id int)
+begin
+	delete from users
+    where user.id = id;
+end;
+
+// delimiter ;
+        
+DELIMITER //
+
 CREATE PROCEDURE get_user_by_id(IN user_id INT)
 
 BEGIN
