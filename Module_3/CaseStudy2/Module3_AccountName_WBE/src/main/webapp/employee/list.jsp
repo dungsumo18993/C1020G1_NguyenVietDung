@@ -21,22 +21,22 @@
     <div class="col-sm-3"></div>
     <div class="col-sm-3"></div>
     <div class="col-sm-2" style="margin: 40px">
-        <h5>Nguyen Van A</h5>
+        <h5>Nguyễn Việt Dũng</h5>
     </div>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #194d40; width: 100%">
-    <a class="navbar-brand" href="#" style="color: white">Home</a>
+    <a class="navbar-brand" href="/index.jsp" style="color: white">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#" style="color: white" ><a href="/employee" >Employee</a> <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="navbar-brand" href="/employee?action=" style="color: white">Employee</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white">Customer</a>
+                <a class="navbar-brand" href="/customers?action=" style="color: white">Customer</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" style="color: white">Service<span class="sr-only">(current)</span></a>
@@ -45,9 +45,11 @@
                 <a class="nav-link" href="#" style="color: white">Contract<span class="sr-only">(current)</span></a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0" action="${pageContext.request.contextPath}/employee">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button">
+                <a href="${pageContext.request.contextPath}/employee?action=search" style="color: white; text-align: center">Search</a>
+            </button>
         </form>
     </div>
 </nav>
@@ -97,29 +99,29 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                                 <a href="/employee?action=edit&id=${employee.id}" style="color: white">Edit</a>
                             </button>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal${employee.id}">
                                 Delete
                             </button>
                         </td>
                     </tr>
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="exampleModal${employee.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">
-                                                Are you sure you want to delete ?</h5>
+                                                Delete Employee</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            ...
+                                            Are you sure you want to delete ?
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button class="btn btn-primary">
-                                                <a href="/employee?action=delete&id=${employee.id}" style="color: white">Save changes</a>
+                                                <a href="/employee?action=delete&id=${employee.id}" style="color: white">OK</a>
                                             </button>
                                         </div>
                                     </div>

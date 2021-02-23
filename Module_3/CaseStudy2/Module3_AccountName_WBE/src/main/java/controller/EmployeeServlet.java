@@ -1,10 +1,8 @@
 package controller;
 
 import model.Employee;
-import repository.EmployeeRepository;
-import repository.impl.EmployeeRepositoryImpl;
-import service.EmployeeService;
-import service.impl.EmployeeServiceImpl;
+import service.employee.EmployeeService;
+import service.employee.impl.EmployeeServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet(name = "EmployeeServlet", urlPatterns = "/employee")
@@ -51,9 +48,16 @@ public class EmployeeServlet extends HttpServlet {
         String division = request.getParameter("division");
 
         Employee employee = new Employee(name,date,idCard,salary,phone,email,address,user,position,education,division);
-        employeeService.insertEmployee(employee);
+        String messenger = employeeService.insertEmployee(employee);
+        request.setAttribute("messenger", messenger);
+        if (messenger.equals("OK")){
+            listEmployee(request, response);
+        } else {
+            showNewForm(request, response);
+        }
 
-        request.getRequestDispatcher("employee/create.jsp").forward(request, response);
+
+
     }
 
     private void updateUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -91,10 +95,21 @@ public class EmployeeServlet extends HttpServlet {
             case "delete":
                 deleteEmployee(request, response);
                 break;
+            case "search":
+                searchEmployee(request, response);
             default:
                 listEmployee(request,response);
                 break;
         }
+    }
+
+    private void searchEmployee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = request.getParameter("name");
+        List<Employee> employeeList = employeeService.findEmployee(name);
+
+        request.setAttribute("employeeList", employeeList);
+
+        request.getRequestDispatcher("employee/list.jsp").forward(request, response);
     }
 
     private void showNewForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -105,9 +120,11 @@ public class EmployeeServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         employeeService.deleteEmployee(id);
 
-        List<Employee> employeeList = employeeService.findAllEmployee();
-        request.setAttribute("employeeList", employeeList);
-        request.getRequestDispatcher("employee/list.jsp").forward(request, response);
+        listEmployee(request, response);
+
+//        List<Employee> employeeList = employeeService.findAllEmployee();
+//        request.setAttribute("employeeList", employeeList);
+//        request.getRequestDispatcher("employee/list.jsp").forward(request, response);
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

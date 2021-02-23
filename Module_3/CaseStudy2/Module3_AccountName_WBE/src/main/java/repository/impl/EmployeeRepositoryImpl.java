@@ -24,6 +24,15 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     private static final String SELECT_EMPLOYEE_BY_ID = "select * from employee " +
             "where employee_id =?";
 
+    private static final String SELECT_EMPLOYEE_BY_NAME = "select e.employee_id, e.employee_birthday, e.employee_id_card, e.employee_salary," +
+            "e.employee_phone, e.employee_email, e.employee_address, e.username, `position`.position_name, education_degree.education_degree_name, division.division_name" +
+            " from employee e" +
+            " join `position` on e.position_id = `position`.position_id" +
+            " join education_degree on e.education_degree_id = education_degree.education_degree_id" +
+            " join division on e.division_id = division.division_id" +
+            " where e.employee_name = ?";
+
+
     private static final String INSERT_EMPLOYEE_SQL = "INSERT INTO employee" +
             "(employee_name, employee_birthday, employee_id_card, employee_salary, employee_phone, " +
             "employee_email, employee_address, username, position_id, education_degree_id, division_id) VALUES " +
@@ -96,6 +105,38 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
             e.printStackTrace();
         }
         return employee;
+    }
+
+    @Override
+    public List<Employee> findEmployee(String name) {
+        List<Employee> employeeList = new ArrayList<>();
+
+        try {
+            PreparedStatement preparedStatement = this.baseRepository.getConnection().prepareStatement(SELECT_EMPLOYEE_BY_NAME);
+            preparedStatement.setString(1,name);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            Employee employee = null;
+            if (rs.next()){
+                employee = new Employee();
+                employee.setId(Integer.parseInt(rs.getString("employee_id")));
+                employee.setDateOfBirth(rs.getString("employee_birthday"));
+                employee.setIdCard(rs.getString("employee_id_card"));
+                employee.setSalary(Double.parseDouble(rs.getString("employee_salary")));
+                employee.setPhone(rs.getString("employee_phone"));
+                employee.setEmail(rs.getString("employee_email"));
+                employee.setAddress(rs.getString("employee_address"));
+                employee.setUsername(rs.getString("username"));
+                employee.setPosition(rs.getString("position_name"));
+                employee.setEducationDegree(rs.getString("education_degree_name"));
+                employee.setDivision(rs.getString("division_name"));
+
+                employeeList.add(employee);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employeeList;
     }
 
     @Override

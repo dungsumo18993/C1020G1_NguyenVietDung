@@ -1,8 +1,8 @@
 package controller;
 
 import model.Customer;
-import service.CustomerService;
-import service.impl.CustomerServiceImpl;
+import service.customer.CustomerService;
+import service.customer.impl.CustomerServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

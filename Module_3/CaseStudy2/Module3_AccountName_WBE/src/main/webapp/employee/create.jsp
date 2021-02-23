@@ -1,9 +1,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" href="../lib/bootstrap.min.css">
+
 <html>
 <head>
     <title>Employee List</title>
+    <link rel="stylesheet" href="../lib/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
 </head>
 <style>
     img{
@@ -25,18 +28,18 @@
     </div>
 </header>
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #194d40; width: 100%">
-    <a class="navbar-brand" href="#" style="color: white">Home</a>
+    <a class="navbar-brand" href="/index.jsp" style="color: white">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#" style="color: white" ><a href="/employee" >Employee</a> <span class="sr-only">(current)</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="/employee?action=" style="color: white">Employee</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" style="color: white">Customer</a>
+                <a class="nav-link" href="/customers?action=" style="color: white">Customer</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="#" style="color: white">Service<span class="sr-only">(current)</span></a>
@@ -62,13 +65,14 @@
             </h5>
         </div>
         <div class="col-sm-10" align="center" >
-            <form method="post">
+            <form method="post" id="formDemo">
                 <caption><h2>Add New Employee</h2></caption>
+                <h5 style="color: red"><c:out value="${messenger}"/></h5>
                 <table border="1" cellpadding="5">
                     <tr>
                         <th>Employee Name:</th>
                         <td>
-                            <input type="text" name="name" size="45"/>
+                            <input type="text" name="name"  size="45" />
                         </td>
                     </tr>
                     <tr>
@@ -167,5 +171,18 @@
 
 <script src="../lib/jquery-3.5.1.min.js"></script>
 <script src="../lib/bootstrap.min.js"></script>
+<%--<script type="text/javascript">--%>
+<%--$(document).ready(function() {--%>
+<%--        //Khi bàn phím được nhấn và thả ra thì sẽ chạy phương thức này--%>
+<%--        $("#formDemo").validate({--%>
+<%--                    rules:{--%>
+<%--                            salary: "number"--%>
+<%--                            },--%>
+<%--                    messages: {--%>
+<%--                            salary: "Phải là số !!"--%>
+<%--                            }--%>
+<%--        });--%>
+<%--});--%>
+<%--</script>--%>
 </body>
 </html>

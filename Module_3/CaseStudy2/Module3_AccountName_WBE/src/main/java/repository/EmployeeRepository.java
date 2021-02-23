@@ -10,6 +10,9 @@ public interface EmployeeRepository {
 
     public Employee findEmployee(int id);
 
+    public List<Employee> findEmployee(String name);
+
+
     public void insertEmployee(Employee employee);
 
     public boolean updateEmployee(Employee employee);
