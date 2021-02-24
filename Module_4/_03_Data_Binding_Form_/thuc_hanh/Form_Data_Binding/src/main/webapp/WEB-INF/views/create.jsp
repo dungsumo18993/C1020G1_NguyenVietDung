@@ -5,7 +5,7 @@
     <title>Create a new employee</title>
 </head>
 <body>
-<h3>Welcome, Enter The Employee Details</h3>
+<h1>Welcome, Enter The Employee Details</h1>
 <form:form method="POST" action="addEmployee" modelAttribute="employee">
     <table>
         <tr>
