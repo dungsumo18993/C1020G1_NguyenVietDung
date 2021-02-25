@@ -1,14 +1,16 @@
 package com.example.service;
 
 import com.example.model.Customer;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class CustomerServiceImpl implements CustomerService {
-    private static Map<Integer,Customer> customers = new HashMap<>();
+    private static Map<Integer, Customer> customers = new HashMap<>();
     static {
         customers.put(1, new Customer(1, "John", "john@codegym.vn", "Hanoi"));
         customers.put(2, new Customer(2, "Bill", "bill@codegym.vn", "Danang"));
@@ -17,6 +19,7 @@ public class CustomerServiceImpl implements CustomerService {
         customers.put(5, new Customer(5, "Sophia", "sophia@codegym.vn", "Miami"));
         customers.put(6, new Customer(6, "Rose", "rose@codegym.vn", "Newyork"));
     }
+
     @Override
     public List<Customer> findAll() {
         return new ArrayList<>(customers.values());
@@ -24,7 +27,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void save(Customer customer) {
-        customers.put(customer.getId(), customer);
+        customers.put(customer.getId(),customer);
     }
 
     @Override
