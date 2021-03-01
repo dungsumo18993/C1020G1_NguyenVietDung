@@ -240,3 +240,10 @@ values (1,3,1,1),
         (6,3,6,2),
         (7,5,7,4),
         (8,2,8,5);
+
+select e.employee_id, e.employee_birthday, e.employee_id_card, e.employee_salary, e.employee_phone, e.employee_email, e.employee_address, e.username, `position`.position_name, education_degree.education_degree_name, division.division_name
+from employee e 
+join `position` on e.position_id = `position`.position_id
+join education_degree on e.education_degree_id = education_degree.education_degree_id
+join division on e.division_id = division.division_id
+where e.employee_name = "john1";
