@@ -2,15 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: head"></head>
 <body>
-<h1>Remove Blog</h1>
-<h2 style="color: red">Are you sure?</h2>
+<h1>Update Blog</h1>
 <h2>
     <a th:href="@{/}">
         Back to blog list
     </a>
 </h2>
 <div id="form">
-    <form action="#" th:action="@{/blog/delete}" th:object="${blog}" method="POST" novalidate="novalidate">
+    <form action="#" th:action="@{/blog/update}" th:object="${blog}" method="POST" novalidate="novalidate">
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label>Name: </label>
@@ -20,7 +19,17 @@
             <label>Content: </label>
             <input type="email" th:field="*{content}"/>
         </div>
-        <input type="submit" value="Remove"/>
+        <div>
+            <label>Category: </label>
+            <select name="category">
+                <option th:each="p : ${categories}"
+                        th:value="${p.id}"
+                        th:text="${p.name}"
+                        th:selected="(${p.id} == *{category.id})">
+                </option>
+            </select>
+        </div>
+        <input type="submit" value="Update"/>
     </form>
 </div>
 <footer th:replace="/layout :: footer"></footer>
