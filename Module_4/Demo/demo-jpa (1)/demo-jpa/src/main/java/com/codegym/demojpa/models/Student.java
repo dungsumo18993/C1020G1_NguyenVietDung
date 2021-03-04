@@ -1,6 +1,11 @@
 package com.codegym.demojpa.models;
 
+import com.codegym.demojpa.ultil.validate.UniqueEmail;
+
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Student {
@@ -8,8 +13,11 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotBlank(message = "Nhập tên vô bạn ơi!!")
     private String name;
 
+    @Min(value = 18,message = "Chưa đủ tuổi bạn ơi!!")
+    @Max(value = 120, message = "Quá tuổi rồi ông/bà ơi!!")
     private int age;
 
     @ManyToOne

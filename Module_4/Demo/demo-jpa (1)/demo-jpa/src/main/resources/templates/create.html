@@ -2,39 +2,31 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Student Manager</title>
+    <title>Create</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 </head>
 <body>
-<a class="btn btn-primary" href="/create">Create</a>
-<h3>Student Manager</h3>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Age</th>
-        <th>TypeOfClass</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="student : ${students}">
-        <td th:text="${student.id}"></td>
-        <td th:text="${student.name}"></td>
-        <td th:text="${student.age}"></td>
-        <td th:text="${student.typeOfClass.name}"></td>
-        <td>
-           <a href="#">Delete</a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<div>
-    <a th:href="@{'/'(page=${students.number - 1})}" th:if="${students.hasPrevious()}">Previous</a>
-    <span th:text="${students.number + 1}"></span>/<span th:text="${students.totalPages}"></span>
-    <a th:href="@{'/'(page=${students.number + 1})}" th:if="${students.hasNext()}">Next</a>
-</div>
+<h3>Create Student</h3>
+<form th:object="${student}" method="post" action="/create">
+    <div class="form-group">
+    <label for="name">Name: </label>
+    <input class="form-control" id="name" th:field="*{name}">
+    <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+    </div>
+    <div class="form-group">
+        <label for="age">Age: </label>
+        <input class="form-control" id="age" th:field="*{age}">
+        <p class="text-danger" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+
+    </div>
+    <select th:field="*{typeOfClass}">
+        <option value="1">Full Time</option>
+        <option value="2">Part Time Dark</option>
+        <option value="3">Part Time Light</option>
+    </select>
+    <input type="submit" value="Create">
+</form>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
