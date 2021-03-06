@@ -15,12 +15,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -74,6 +70,10 @@ public class BlogController {
     }
     @PostMapping("/blog/update")
     public String update(Blog blog){
+        DateFormat df = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date today = Calendar.getInstance().getTime();
+        String date = df.format(today);
+        blog.setDateCreate(date);
         blogService.save(blog);
         return "redirect:/";
     }
