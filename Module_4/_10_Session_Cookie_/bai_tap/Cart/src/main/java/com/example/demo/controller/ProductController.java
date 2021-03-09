@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Product;
 import com.example.demo.service.ProductService;
+import com.example.demo.service.impl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -20,7 +21,7 @@ import java.util.Map;
 @SessionAttributes("cart")
 public class ProductController {
     @Autowired
-    ProductService productService;
+    ProductServiceImpl productService;
 
     @ModelAttribute("cart")
     public Map<Product, Integer> createProduct(){
@@ -64,7 +65,6 @@ public class ProductController {
         } else {
             // xét value củ của key thành value mới.
             cart.replace(product,cart.get(product),cart.get(product) - 1);
-            product.setPrice(product.getPrice() * cart.get(product));
         }
         model.addAttribute("cart", cart);
         return "/cart/list";

@@ -52,7 +52,7 @@
     <tr th:each="oder,rowStat : ${cart}">
         <td th:text="${rowStat.count}"></td>
         <td th:text="${oder.key.name}"></td>
-        <td th:text="${oder.key.price}"></td>
+        <td th:text="${oder.key.price * oder.value}"></td>
         <td>
             <a class="btn btn-primary" role="button" th:href="@{/oder/{id}/reduction(id=${oder.key.id})}">-</a>
             <a href="" th:text="${oder.value}"></a>
