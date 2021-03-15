@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security ">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<head th:insert="/layout :: head">
+</head>
+<body>
+<h1>Customer List</h1>
+<h2>
+    <a th:href="@{/}">
+        Back to Homepage
+    </a>
+</h2>
+<form class="form-inline my-2 my-lg-0" th:action="@{/customer-search}">
+    <lable style="font-size: 30px">Search by name: </lable>
+    <input style="margin-left: 10px" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <a style="margin-left: 900px" class="btn btn-primary" href="#" role="button" th:href="@{/customer-create}">Add New</a>
+</form><br>
+<div class="notify">
+    <div th:if="${message}">
+        <h3 style="color: green" th:text="${message}"></h3>
+    </div>
+</div>
+<table id = "tables">
+    <thead>
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Date Of Birth</th>
+        <th>Gender</th>
+        <th>Id Card</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Customer Type</th>
+        <th colspan="3">
+            Action
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="customer,rowStat : ${customerList}">
+        <td th:text="${rowStat.count}"></td>
+        <td th:text="${customer.customerName}"></td>
+        <td th:text="${customer.customerCode}"></td>
+        <td th:text="${customer.customerBirthday}"></td>
+        <td th:text="${customer.customerGender}"></td>
+        <td th:text="${customer.customerIdCard}"></td>
+        <td th:text="${customer.customerPhone}"></td>
+        <td th:text="${customer.customerEmail}"></td>
+        <td th:text="${customer.customerAddress}"></td>
+        <td th:text="${customer.customerType.customerTypeName}"></td>
+        <td><a class="btn btn-primary" href="#" role="button" th:href="@{/customer/{id}/edit(id=${customer.customerId})}">Edit</a></td>
+        <td><a class="btn btn-primary" href="#deleteEmployeeModal" role="button" data-toggle="modal"
+               th:onclick="|setIdToForm('${customer.customerId}')|">Delete</a></td>
+        <td><a class="btn btn-primary" href="#" role="button" th:href="@{/customer/{id}/view(id=${customer.customerId})}">View</a></td>
+    </tr>
+
+    <!-- Delete Modal HTML -->
+    <div id="deleteEmployeeModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form th:action="@{/customer-delete}">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Delete Customer</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to delete these Records?</p>
+                        <p class="text-warning"><small>This action cannot be undone.</small></p>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                        <input type="hidden" id="setCustomerId" name="id">
+                        <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </tbody>
+</table>
+<div>
+    <a th:href="@{'/customer-list'(page=${customerList.number - 1})}" th:if="${customerList.hasPrevious()}">Previous</a>
+    <span th:text="${customerList.number + 1}"></span>/<span th:text="${customerList.totalPages}"></span>
+    <a th:href="@{'/customer-list'(page=${customerList.number + 1})}" th:if="${customerList.hasNext()}">Next</a>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+<script>
+    function setIdToForm(id) {
+        document.getElementById("setCustomerId").value = id;
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>

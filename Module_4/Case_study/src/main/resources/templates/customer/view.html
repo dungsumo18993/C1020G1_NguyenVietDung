@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h1>View Customer</h1>
+<h2>
+    <a th:href="@{/customer-list}">
+        Back to Customer list
+    </a>
+</h2>
+<div id="detail">
+    <table id="tables">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Date Of Birth</th>
+                <th>Gender</th>
+                <th>Id Card</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Customer Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${customer.customerId}"></td>
+                <td th:text="${customer.customerName}"></td>
+                <td th:text="${customer.customerCode}"></td>
+                <td th:text="${customer.customerBirthday}"></td>
+                <td th:text="${customer.customerGender}"></td>
+                <td th:text="${customer.customerIdCard}"></td>
+                <td th:text="${customer.customerPhone}"></td>
+                <td th:text="${customer.customerEmail}"></td>
+                <td th:text="${customer.customerAddress}"></td>
+                <td th:text="${customer.customerType.customerTypeName}"></td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h1>Add New House</h1>
+<h2>
+    <a th:href="@{/services/list}">
+        Back to Service list
+    </a>
+</h2>
+<div class="notify">
+    <div th:if="${message}">
+        <h3 style="color: green" th:text="${message}"></h3>
+    </div>
+</div>
+<div id="form">
+    <form action="#" th:action="@{/services/saveHouse}" th:object="${service}" method="POST" novalidate="novalidate">
+        <input type="hidden" name="idServiceType" value="2"/>
+        <div>
+            <label>Code: </label>
+            <input type="text" th:field="*{serviceCode}"/>
+        </div>
+        <div>
+            <label>Name: </label>
+            <input type="text" th:field="*{serviceName}"/>
+        </div>
+        <div>
+            <label>Standard Room: </label>
+            <input type="text" th:field="*{standardRoom}"/>
+        </div>
+        <div>
+            <label>Max People: </label>
+            <input type="number" th:field="*{serviceMaxPeople}"/>
+        </div>
+        <div>
+            <label>Area: </label>
+            <input type="number" th:field="*{serviceArea}"/>
+        </div>
+        <div>
+            <label>Cost: </label>
+            <input type="number" th:field="*{serviceCost}"/>
+        </div>
+        <div>
+            <label>Number of floors: </label>
+            <input type="number" th:field="*{numberOfFloors}"/>
+        </div>
+        <div>
+            <label>Other Convenience: </label>
+            <input type="text" th:field="*{descriptionOtherConvenience}"/>
+        </div>
+        <div>
+            <label>Rent Type: </label>
+            <select th:field="*{rentType}">
+                <option th:each="r : ${rentTypes}"
+                        th:value="${r.rentTypeId}"
+                        th:text="${r.rentTypeName}">
+                </option>
+            </select>
+        </div>
+        <input type="submit" value="Save"></input>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
