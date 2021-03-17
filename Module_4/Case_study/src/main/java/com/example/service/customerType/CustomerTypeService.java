@@ -1,6 +1,6 @@
 package com.example.service.customerType;
 
-import com.example.model.CustomerType;
+import com.example.entity.CustomerType;
 
 public interface CustomerTypeService {
     Iterable<CustomerType> findAll();

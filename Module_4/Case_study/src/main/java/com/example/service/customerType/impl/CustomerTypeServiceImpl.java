@@ -1,6 +1,6 @@
 package com.example.service.customerType.impl;
 
-import com.example.model.CustomerType;
+import com.example.entity.CustomerType;
 import com.example.repository.customerType.CustomerTypeRepository;
 import com.example.service.customerType.CustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;

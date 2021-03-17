@@ -1,6 +1,6 @@
 package com.example.service.rentType;
 
-import com.example.model.RentType;
+import com.example.entity.RentType;
 
 import java.util.List;
 

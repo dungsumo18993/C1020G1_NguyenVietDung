@@ -7,16 +7,17 @@
 <head th:insert="/layout :: head">
 </head>
 <body>
-<h1>Service List</h1>
+<h1>Contract List</h1>
 <h2>
     <a th:href="@{/}">
         Back to Homepage
     </a>
 </h2>
-<form class="form-inline my-2 my-lg-0" th:action="@{/service/search}">
+<form class="form-inline my-2 my-lg-0" th:action="@{/contract/search}">
     <lable style="font-size: 30px">Search by name: </lable>
     <input style="margin-left: 10px" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    <a style="margin-left: 900px" class="btn btn-primary" href="#" role="button" th:href="@{/contract/create}">Add New</a>
 </form><br>
 <div class="notify">
     <div th:if="${message}">
@@ -27,44 +28,41 @@
     <thead>
     <tr>
         <th>STT</th>
-        <th>Code</th>
-        <th>Name</th>
-        <th>Standard Room</th>
-        <th>Max People</th>
-        <th>Area</th>
-        <th>Cost</th>
-        <th>Service Type</th>
-        <th>Rent Type</th>
-
+        <th>START DATE</th>
+        <th>END DATE</th>
+        <th>DEPOSIT</th>
+        <th>TOTAL</th>
+        <th>EMPLOYEE</th>
+        <th>CUSTOMER</th>
+        <th>SERVICE</th>
     </tr>
     </thead>
     <tbody>
-        <tr th:each="service,rowStat : ${serviceList}">
-            <td th:text="${rowStat.count}"></td>
-            <td th:text="${service.serviceCode}"></td>
-            <td th:text="${service.serviceName}"></td>
-            <td th:text="${service.standardRoom}"></td>
-            <td th:text="${service.serviceMaxPeople}"></td>
-            <td th:text="${service.serviceArea}"></td>
-            <td th:text="${service.serviceCost}"></td>
-            <td th:text="${service.serviceType.serviceTypeName}"></td>
-            <td th:text="${service.rentType.rentTypeName}"></td>
-        </tr>
+    <tr th:each="contract,rowStat : ${contracts}">
+        <td th:text="${rowStat.count}"></td>
+        <td th:text="${contract.contractStartDate}"></td>
+        <td th:text="${contract.contractEndDate}"></td>
+        <td th:text="${contract.contractDeposit}"></td>
+        <td th:text="${contract.contractTotalMoney}"></td>
+        <td th:text="${contract.employee.employeeName}"></td>
+        <td th:text="${contract.customer.customerName}"></td>
+        <td th:text="${contract.service.serviceName}"></td>
+    </tr>
     </tbody>
 </table>
 <div class="clearfix">
     <ul class="pagination" style="float: right; margin: 10px 50px">
         <li class="page-item">
-            <a th:href="@{'/services/list'(page=${serviceList.number - 1})}" th:if="${serviceList.hasPrevious()}" class="page-link">
+            <a th:href="@{'/contract/'(page=${contracts.number - 1})}" th:if="${contracts.hasPrevious()}" class="page-link">
                 Previous
             </a>
         </li>
 
-        <li class="page-item active" th:each="numberPage : ${serviceList.totalPages}">
-            <a class="page-link" th:href="@{'/services/list'(page=${serviceList.number})}" th:text="${serviceList.number + 1}"></a>
+        <li class="page-item active" th:each="numberPage : ${contracts.totalPages}">
+            <a class="page-link" th:href="@{'/contract/'(page=${contracts.number})}" th:text="${contracts.number + 1}"></a>
         </li>
         <li class="page-item">
-            <a th:href="@{'/services/list'(page=${serviceList.number + 1})}" th:if="${serviceList.hasNext()}" class="page-link">
+            <a th:href="@{'/contract/'(page=${contracts.number + 1})}" th:if="${contracts.hasNext()}" class="page-link">
                 Next
             </a>
         </li>

@@ -1,7 +1,7 @@
 package com.example.controller;
 
-import com.example.model.Customer;
-import com.example.model.CustomerType;
+import com.example.entity.Customer;
+import com.example.entity.CustomerType;
 import com.example.service.customer.impl.CustomerServiceImpl;
 import com.example.service.customerType.impl.CustomerTypeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 @Controller
 public class CustomerController {

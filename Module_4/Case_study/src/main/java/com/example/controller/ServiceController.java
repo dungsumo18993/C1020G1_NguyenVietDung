@@ -1,8 +1,8 @@
 package com.example.controller;
 
-import com.example.model.RentType;
-import com.example.model.Service;
-import com.example.model.ServiceType;
+import com.example.entity.RentType;
+import com.example.entity.Service;
+import com.example.entity.ServiceType;
 import com.example.service.rentType.impl.RentTypeServiceImpl;
 import com.example.service.service.impl.ServiceServiceImpl;
 import com.example.service.serviceType.impl.ServiceTypeServiceImpl;
@@ -52,10 +52,10 @@ public class ServiceController {
     }
 
     @PostMapping("/save")
-    public String save(Service service,@RequestParam Integer idServiceType, RedirectAttributes redirect){
+    public String save(Service service,@RequestParam Integer idServiceType, Model model){
         service.setServiceType(serviceTypeService.findById(idServiceType));
         serviceService.save(service);
-        redirect.addFlashAttribute("massage", "Add new Service successfully !!");
+        model.addAttribute("message", "Add new Service successfully !!");
         return "/service/villa";
     }
 
@@ -69,7 +69,7 @@ public class ServiceController {
         service.setServiceType(serviceTypeService.findById(idServiceType));
         serviceService.save(service);
         redirect.addFlashAttribute("message", "Add new Service successfully !!");
-        return "/service/house";
+        return "redirect:/services/house";
     }
 
     @GetMapping("/room")
@@ -82,6 +82,6 @@ public class ServiceController {
         service.setServiceType(serviceTypeService.findById(idServiceType));
         serviceService.save(service);
         redirect.addFlashAttribute("message", "Add new Service successfully !!");
-        return "/service/room";
+        return "redirect:/services/room";
     }
 }

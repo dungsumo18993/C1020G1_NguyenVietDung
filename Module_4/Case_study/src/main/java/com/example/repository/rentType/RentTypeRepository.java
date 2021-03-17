@@ -1,6 +1,6 @@
 package com.example.repository.rentType;
 
-import com.example.model.RentType;
+import com.example.entity.RentType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

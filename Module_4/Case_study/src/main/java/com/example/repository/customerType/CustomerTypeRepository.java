@@ -1,6 +1,6 @@
 package com.example.repository.customerType;
 
-import com.example.model.CustomerType;
+import com.example.entity.CustomerType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

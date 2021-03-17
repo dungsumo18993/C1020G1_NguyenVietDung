@@ -1,6 +1,7 @@
-package com.example.model;
+package com.example.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Service {
@@ -47,10 +48,20 @@ public class Service {
     @JoinColumn(name = "rent_type_id", referencedColumnName = "rent_type_id")
     private RentType rentType;
 
+    @OneToMany(mappedBy = "service")
+    private Set<Contract> contractSet;
     //------------------------------------------------------------------
 
 
     public Service() {
+    }
+
+    public Set<Contract> getContractSet() {
+        return contractSet;
+    }
+
+    public void setContractSet(Set<Contract> contractSet) {
+        this.contractSet = contractSet;
     }
 
     public RentType getRentType() {

@@ -1,6 +1,6 @@
 package com.example.service.serviceType;
 
-import com.example.model.ServiceType;
+import com.example.entity.ServiceType;
 
 import java.util.List;
 

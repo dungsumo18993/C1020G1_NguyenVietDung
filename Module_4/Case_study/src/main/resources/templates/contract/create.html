@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h1>Add New Contract</h1>
+<h2>
+    <a th:href="@{/contract/}">
+        Back to Contract list
+    </a>
+</h2>
+<div id="form">
+    <form action="#" th:action="@{/contract/save}" th:object="${contract}" method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{contractId}"/>
+        <div>
+            <label>START DATE: </label>
+            <input type="date" th:field="*{contractStartDate}"/>
+        </div>
+        <div>
+            <label>END DATE: </label>
+            <input type="date" th:field="*{contractEndDate}"/>
+        </div>
+        <div>
+            <label>DEPOSIT: </label>
+            <input type="number" th:field="*{contractDeposit}"/>
+        </div>
+        <div>
+            <label>TOTAL: </label>
+            <input type="number" th:field="*{contractTotalMoney}"/>
+        </div>
+        <div>
+            <label>EMPLOYEE: </label>
+            <select th:field="*{employee}">
+                <option th:each="e : ${employees}"
+                        th:value="${e.employeeId}"
+                        th:text="${e.employeeName}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>CUSTOMER: </label>
+            <select th:field="*{customer}">
+                <option th:each="c : ${customers}"
+                        th:value="${c.customerId}"
+                        th:text="${c.customerName}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>SERVICE: </label>
+            <select th:field="*{service}">
+                <option th:each="s : ${services}"
+                        th:value="${s.serviceId}"
+                        th:text="${s.serviceName}">
+                </option>
+            </select>
+        </div>
+        <input type="submit" value="Save"></input>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
