@@ -9,9 +9,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 public class CustomerController {
@@ -27,10 +31,6 @@ public class CustomerController {
         return customerTypeService.findAll();
     }
 
-    @GetMapping("/")
-    public String showHome(){
-        return "/home";
-    }
 
     @GetMapping("/customer-list")
     public ModelAndView showList(@PageableDefault(size = 5)Pageable pageable){
@@ -44,10 +44,14 @@ public class CustomerController {
     }
 
     @PostMapping("/customer-save")
-    public String save(Customer customer, RedirectAttributes redirect){
-        customerService.save(customer);
-        redirect.addFlashAttribute("message", "Add new Customer successfully !!");
-        return "redirect:/customer-list";
+    public String save(@Valid @ModelAttribute Customer customer, BindingResult bindingResult, RedirectAttributes redirect){
+        if (bindingResult.hasFieldErrors()){
+            return "/customer/create";
+        } else {
+            customerService.save(customer);
+            redirect.addFlashAttribute("message", "Add new Customer successfully !!");
+            return "redirect:/customer-list";
+        }
     }
 
     @GetMapping("/customer/{id}/edit")
@@ -76,8 +80,16 @@ public class CustomerController {
     }
 
     @GetMapping("/customer-search")
-    public String search(@PageableDefault(size = 5) Pageable pageable, @RequestParam String name, Model model){
-        model.addAttribute("customerList", customerService.findByName(name, pageable));
-        return "/customer/list";
+    public String search(@PageableDefault(size = 5) Pageable pageable, @RequestParam Optional<String> keyword, Model model){
+        String keywordOld = "";
+        if (!keyword.isPresent()) {
+            model.addAttribute("customerList", customerService.findAllCustomer(pageable));
+            return "/customer/list";
+        } else {
+            keywordOld = keyword.get();
+            model.addAttribute("customerList", customerService.findAllInput(keywordOld, pageable));
+            model.addAttribute("keywordOld", keywordOld);
+            return "/customer/list";
+        }
     }
 }

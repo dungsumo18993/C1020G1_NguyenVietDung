@@ -20,6 +20,16 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
+    public Page<Contract> findAllCustomerActive(String date, Pageable pageable) {
+        return contractRepository.findAllCustomerActive(date, pageable);
+    }
+
+    @Override
+    public Page<Contract> findAllInput(String date, String keyword, Pageable pageable) {
+        return contractRepository.findAllInput(date, keyword, pageable);
+    }
+
+    @Override
     public void save(Contract contract) {
         contractRepository.save(contract);
     }

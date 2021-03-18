@@ -4,8 +4,8 @@
 <body>
 <h1>Add New Villa</h1>
 <h2>
-    <a th:href="@{/services/list}">
-        Back to Service list
+    <a th:href="@{/}">
+        Back to Home
     </a>
 </h2>
 <div class="notify">
@@ -19,38 +19,47 @@
         <div>
             <label>Code: </label>
             <input type="text" th:field="*{serviceCode}"/>
+            <small th:if="${#fields.hasErrors('serviceCode')}" th:errors="*{serviceCode}">Name Error</small>
         </div>
         <div>
             <label>Name: </label>
             <input type="text" th:field="*{serviceName}"/>
+            <small th:if="${#fields.hasErrors('serviceName')}" th:errors="*{serviceName}">Name Error</small>
         </div>
         <div>
             <label>Standard Room: </label>
             <input type="text" th:field="*{standardRoom}"/>
+            <small th:if="${#fields.hasErrors('standardRoom')}" th:errors="*{standardRoom}">Name Error</small>
         </div>
         <div>
             <label>Max People: </label>
             <input type="number" th:field="*{serviceMaxPeople}"/>
+            <small th:if="${#fields.hasErrors('serviceMaxPeople')}" th:errors="*{serviceMaxPeople}">Name Error</small>
         </div>
         <div>
             <label>Area: </label>
             <input type="number" th:field="*{serviceArea}"/>
+            <small th:if="${#fields.hasErrors('serviceArea')}" th:errors="*{serviceArea}">Name Error</small>
         </div>
         <div>
             <label>Pool Area: </label>
             <input type="number" th:field="*{poolArea}"/>
+            <small th:if="${#fields.hasErrors('poolArea')}" th:errors="*{poolArea}">Name Error</small>
         </div>
         <div>
             <label>Cost: </label>
             <input type="number" th:field="*{serviceCost}"/>
+            <small th:if="${#fields.hasErrors('serviceCost')}" th:errors="*{serviceCost}">Name Error</small>
         </div>
         <div>
             <label>Number of floors: </label>
             <input type="number" th:field="*{numberOfFloors}"/>
+            <small th:if="${#fields.hasErrors('numberOfFloors')}" th:errors="*{numberOfFloors}">Name Error</small>
         </div>
         <div>
             <label>Other Convenience: </label>
             <input type="text" th:field="*{descriptionOtherConvenience}"/>
+            <small th:if="${#fields.hasErrors('descriptionOtherConvenience')}" th:errors="*{descriptionOtherConvenience}">Name Error</small>
         </div>
         <div>
             <label>Rent Type: </label>
@@ -65,5 +74,10 @@
     </form>
 </div>
 <footer th:replace="/layout :: footer"></footer>
+<style>
+    small {
+        color: red;
+    }
+</style>
 </body>
 </html>

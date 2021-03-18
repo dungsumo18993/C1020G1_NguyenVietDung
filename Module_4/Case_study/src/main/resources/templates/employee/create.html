@@ -14,31 +14,38 @@
         <div>
             <label>Name: </label>
             <input type="text" th:field="*{employeeName}"/>
+            <small th:if="${#fields.hasErrors('employeeName')}" th:errors="*{employeeName}">Name Error</small>
         </div>
         <div>
             <label>Date Of Birth: </label>
             <input type="date" th:field="*{employeeBirthday}"/>
+            <small th:if="${#fields.hasErrors('employeeBirthday')}" th:errors="*{employeeBirthday}">Name Error</small>
         </div>
         <div>
             <label>Id Card: </label>
             <input type="text" th:field="*{employeeIdCard}"/>
+            <small th:if="${#fields.hasErrors('employeeIdCard')}" th:errors="*{employeeIdCard}">Name Error</small>
         </div>
         <div>
             <label>Salary: </label>
             <input type="text" th:field="*{employeeSalary}"/>
+            <small th:if="${#fields.hasErrors('employeeSalary')}" th:errors="*{employeeSalary}">Name Error</small>
         </div>
         <div>
             <label>Phone: </label>
             <input type="tel" th:field="*{employeePhone}"/>
+            <small th:if="${#fields.hasErrors('employeePhone')}" th:errors="*{employeePhone}">Name Error</small>
         </div>
 
         <div>
             <label>Email: </label>
             <input type="text" th:field="*{employeeEmail}"/>
+            <small th:if="${#fields.hasErrors('employeeEmail')}" th:errors="*{employeeEmail}">Name Error</small>
         </div>
         <div>
             <label>Address: </label>
             <input type="text" th:field="*{employeeAddress}"/>
+            <small th:if="${#fields.hasErrors('employeeAddress')}" th:errors="*{employeeAddress}">Name Error</small>
         </div>
         <div>
             <label>Position: </label>
@@ -71,5 +78,10 @@
     </form>
 </div>
 <footer th:replace="/layout :: footer"></footer>
+<style>
+    small{
+        color: red;
+    }
+</style>
 </body>
 </html>

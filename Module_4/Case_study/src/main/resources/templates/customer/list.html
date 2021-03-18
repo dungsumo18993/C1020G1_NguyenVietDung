@@ -15,9 +15,9 @@
 </h2>
 <form class="form-inline my-2 my-lg-0" th:action="@{/customer-search}">
     <lable style="font-size: 30px">Search by name: </lable>
-    <input style="margin-left: 10px" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name">
+    <input style="margin-left: 10px" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    <a style="margin-left: 900px" class="btn btn-primary" href="#" role="button" th:href="@{/customer-create}">Add New</a>
+    <a style="margin-left: 900px" class="btn btn-primary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/customer-create}">Add New</a>
 </form><br>
 <div class="notify">
     <div th:if="${message}">
@@ -55,9 +55,9 @@
         <td th:text="${customer.customerEmail}"></td>
         <td th:text="${customer.customerAddress}"></td>
         <td th:text="${customer.customerType.customerTypeName}"></td>
-        <td><a class="btn btn-primary" href="#" role="button" th:href="@{/customer/{id}/edit(id=${customer.customerId})}">Edit</a></td>
+        <td><a class="btn btn-primary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/customer/{id}/edit(id=${customer.customerId})}">Edit</a></td>
         <td><a class="btn btn-primary" href="#deleteEmployeeModal" role="button" data-toggle="modal"
-               th:onclick="|setIdToForm('${customer.customerId}')|">Delete</a></td>
+               sec:authorize="hasRole('ROLE_MANAGER')" th:onclick="|setIdToForm('${customer.customerId}')|">Delete</a></td>
         <td><a class="btn btn-primary" href="#" role="button" th:href="@{/customer/{id}/view(id=${customer.customerId})}">View</a></td>
     </tr>
 

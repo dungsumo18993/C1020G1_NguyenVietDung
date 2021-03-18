@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 public interface CustomerService {
     Page<Customer> findAllCustomer(Pageable pageable);
 
-    Page<Customer> findByName(String name, Pageable pageable);
+    Page<Customer> findAllInput(String name, Pageable pageable);
 
     Customer findById(Integer id);
 

@@ -19,8 +19,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Page<Customer> findByName(String name, Pageable pageable) {
-        return customerRepository.findByCustomerNameContaining(name, pageable);
+    public Page<Customer> findAllInput(String name, Pageable pageable) {
+        return customerRepository.findAllInput(name, pageable);
     }
 
     @Override

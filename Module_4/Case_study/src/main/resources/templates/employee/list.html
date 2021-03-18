@@ -17,7 +17,7 @@
     <lable style="font-size: 30px">Search by name: </lable>
     <input style="margin-left: 10px" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="name">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    <a style="margin-left: 900px" class="btn btn-primary" href="#" role="button" th:href="@{/employees/create}">Add New</a>
+    <a style="margin-left: 900px" class="btn btn-primary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/employees/create}">Add New</a>
 </form><br>
 <div class="notify">
     <div th:if="${message}">
@@ -57,9 +57,9 @@
         <td th:text="${employee.position.positionName}"></td>
         <td th:text="${employee.educationDegree.educationDegreeName}"></td>
         <td th:text="${employee.division.divisionName}"></td>
-        <td><a class="btn btn-primary" href="#" role="button" th:href="@{/employees/{id}/edit(id=${employee.employeeId})}">Edit</a></td>
+        <td><a class="btn btn-primary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/employees/{id}/edit(id=${employee.employeeId})}">Edit</a></td>
         <td><a class="btn btn-primary" href="#deleteEmployeeModal" role="button" data-toggle="modal"
-               th:onclick="|setIdToForm('${employee.employeeId}')|">Delete</a>
+               sec:authorize="hasRole('ROLE_MANAGER')" th:onclick="|setIdToForm('${employee.employeeId}')|">Delete</a>
         </td>
     </tr>
 

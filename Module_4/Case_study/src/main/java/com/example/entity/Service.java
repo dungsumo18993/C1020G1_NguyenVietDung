@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Set;
 
 @Entity
@@ -12,30 +13,39 @@ public class Service {
     private Integer serviceId;
 
     @Column(name = "service_code")
-    private String ServiceCode;
+    @Pattern(regexp = "(DV-[\\d]{4})", message = "Service code must be in the correct DV-XXXX format !!")
+    private String serviceCode;
 
     @Column(name = "service_name")
+    @Size(min = 4, max = 45, message = "Name not suitable !!")
     private String serviceName;
 
     @Column(name = "service_area")
+    @Min(1)
     private int serviceArea;
 
     @Column(name = "service_cost")
+    @Min(1)
     private double serviceCost;
 
     @Column(name = "service_max_people")
+    @Min(1)
     private int serviceMaxPeople;
 
     @Column(name = "standard_room")
+    @NotEmpty(message = "Not be empty !!")
     private String standardRoom;
 
     @Column(name = "description_other_convenience")
+    @NotEmpty(message = "Not be empty !!")
     private String descriptionOtherConvenience;
 
     @Column(name = "pool_area")
+    @Min(1)
     private double poolArea;
 
     @Column(name = "number_of_floors")
+    @Min(1)
     private int numberOfFloors;
 
     //------------------------ Tạo Mối Quan Hệ -------------------------
@@ -73,11 +83,11 @@ public class Service {
     }
 
     public String getServiceCode() {
-        return ServiceCode;
+        return serviceCode;
     }
 
     public void setServiceCode(String serviceCode) {
-        ServiceCode = serviceCode;
+        this.serviceCode = serviceCode;
     }
 
     public Integer getServiceId() {

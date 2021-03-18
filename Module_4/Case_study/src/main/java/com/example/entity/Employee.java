@@ -1,6 +1,10 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -12,24 +16,32 @@ public class Employee {
     private Integer employeeId;
 
     @Column(name = "employee_name")
+    @Size(min = 5, max = 45, message = "Name not suitable !!")
     private String employeeName;
 
     @Column(name = "employee_birthday")
+    @NotEmpty(message = "Not be empty !!")
     private String employeeBirthday;
 
     @Column(name = "employee_id_card")
+    @Pattern(regexp = "(\\d{9})|(\\d{12})", message = "The ID number must be in the format XXXXXXXXX or XXXXXXXXXXXX !!")
     private String employeeIdCard;
 
     @Column(name = "employee_salary")
+    @Min(1)
     private Double employeeSalary;
 
     @Column(name = "employee_phone")
+    @Pattern(regexp = "(090|091|(84)+90|(84)+91)\\d{7}", message = "Phone number must be in the format 090xxxxxxx or" +
+            " 091xxxxxxx or (84) + 90xxxxxxx or (84) + 91xxxxxxx !!")
     private String employeePhone;
 
     @Column(name = "employee_email")
+    @Pattern(regexp = "([\\w]+@[a-z]+.[a-z]+)", message = "Email malformed !!")
     private String employeeEmail;
 
     @Column(name = "employee_address")
+    @NotEmpty(message = "Not be empty !!")
     private String employeeAddress;
 
     //---------------------- Tạo mối quan hệ -----------------------
@@ -45,12 +57,24 @@ public class Employee {
     @JoinColumn(name = "division_id", referencedColumnName = "division_id")
     private Division division;
 
+    @OneToOne
+    @JoinColumn(name = "user_name", referencedColumnName = "user_name")
+    private User user;
+
     @OneToMany(mappedBy = "employee")
     private Set<Contract> contractSet;
     //--------------------------------------------------------------
 
 
     public Employee() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Set<Contract> getContractSet() {

@@ -1,6 +1,9 @@
 package com.example.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.*;
 import java.util.Set;
 
 @Entity
@@ -11,27 +14,40 @@ public class Customer {
     private Integer customerId;
 
     @Column(name = "customer_code")
+    @NotNull(message = "Not be empty !!")
+    @Pattern(regexp = "(KH-[\\d]{4})", message = "Customer code wrong format !!")
     private String customerCode;
 
     @Column(name = "customer_name")
+    @NotNull(message = "Not be empty !!")
+    @Size(min = 5, max = 45, message = "Name not suitable !!")
     private String customerName;
 
     @Column(name = "customer_birthday")
+    @NotEmpty(message = "Not be empty !!")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private String customerBirthday;
 
     @Column(name = "customer_gender")
+    @NotNull(message = "Not be empty !!")
     private String customerGender;
 
     @Column(name = "customer_id_card")
+    @Pattern(regexp = "(\\d{9})|(\\d{12})", message = "The ID number must be in the format XXXXXXXXX or XXXXXXXXXXXX !!")
     private String customerIdCard;
 
     @Column(name = "customer_phone")
+    @Pattern(regexp = "(090|091|(84)+90|(84)+91)\\d{7}", message = "Phone number must be in the format 090xxxxxxx or" +
+            " 091xxxxxxx or (84) + 90xxxxxxx or (84) + 91xxxxxxx !!")
     private String customerPhone;
 
     @Column(name = "customer_email")
+    @NotEmpty(message = "Not be empty !!")
+    @Email(message = "Email malformed !!")
     private String customerEmail;
 
     @Column(name = "customer_address")
+    @NotEmpty(message = "Not be empty !!")
     private String customerAddress;
 
     // ----------------------------- Tạo mối quan hệ ------------------------------------------
@@ -40,7 +56,7 @@ public class Customer {
     @JoinColumn(name = "customer_type_id", referencedColumnName = "customer_type_id")
     private CustomerType customerType;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
     private Set<Contract> contractSet;
     //-----------------------------------------------------------------------------------------
 
