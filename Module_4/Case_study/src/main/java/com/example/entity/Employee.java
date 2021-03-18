@@ -1,10 +1,7 @@
 package com.example.entity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.Set;
 
 @Entity
@@ -28,7 +25,7 @@ public class Employee {
     private String employeeIdCard;
 
     @Column(name = "employee_salary")
-    @Min(1)
+    @Min(value = 1, message = "Salary > 0")
     private Double employeeSalary;
 
     @Column(name = "employee_phone")
@@ -37,7 +34,8 @@ public class Employee {
     private String employeePhone;
 
     @Column(name = "employee_email")
-    @Pattern(regexp = "([\\w]+@[a-z]+.[a-z]+)", message = "Email malformed !!")
+    @NotEmpty(message = "Not be empty !!")
+    @Email(message = "Email malformed !!")
     private String employeeEmail;
 
     @Column(name = "employee_address")
@@ -61,7 +59,7 @@ public class Employee {
     @JoinColumn(name = "user_name", referencedColumnName = "user_name")
     private User user;
 
-    @OneToMany(mappedBy = "employee")
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<Contract> contractSet;
     //--------------------------------------------------------------
 

@@ -14,18 +14,22 @@
         <div>
             <label>START DATE: </label>
             <input type="date" th:field="*{contractStartDate}"/>
+            <p th:if="${#fields.hasErrors('contractStartDate')}" th:errors="*{contractStartDate}">Name Error</p>
         </div>
         <div>
             <label>END DATE: </label>
             <input type="date" th:field="*{contractEndDate}"/>
+            <p th:if="${#fields.hasErrors('contractEndDate')}" th:errors="*{contractEndDate}">Name Error</p>
         </div>
         <div>
             <label>DEPOSIT: </label>
             <input type="number" th:field="*{contractDeposit}"/>
+            <p th:if="${#fields.hasErrors('contractDeposit')}" th:errors="*{contractDeposit}">Name Error</p>
         </div>
         <div>
             <label>TOTAL: </label>
             <input type="number" th:field="*{contractTotalMoney}"/>
+            <p th:if="${#fields.hasErrors('contractTotalMoney')}" th:errors="*{contractTotalMoney}">Name Error</p>
         </div>
         <div>
             <label>EMPLOYEE: </label>
@@ -58,5 +62,10 @@
     </form>
 </div>
 <footer th:replace="/layout :: footer"></footer>
+<style>
+    p{
+        color: red;
+    }
+</style>
 </body>
 </html>

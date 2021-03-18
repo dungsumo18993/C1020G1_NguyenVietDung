@@ -23,6 +23,7 @@
         <div>
             <label>QUANTITY: </label>
             <input type="number" th:field="*{quantity}"/>
+            <p th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Name Error</p>
         </div>
         <div>
             <label>ATTACH SERVICE: </label>
@@ -37,5 +38,10 @@
     </form>
 </div>
 <footer th:replace="/layout :: footer"></footer>
+<style>
+    p{
+        color: red;
+    }
+</style>
 </body>
 </html>

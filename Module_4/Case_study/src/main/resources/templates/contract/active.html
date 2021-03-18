@@ -52,9 +52,9 @@
             <p th:each="contractDetail : ${contract.contractDetailSet}"
                th:text="${contractDetail.attachService.attachServiceName}"></p>
         </td>
-        <td><a class="btn btn-primary" href="#" role="button" th:href="@{/services/{id}/edit(id=${contract.service.serviceId})}">Edit</a></td>
+        <td><a class="btn btn-primary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/services/{id}/edit(id=${contract.service.serviceId})}">Edit</a></td>
         <td><a class="btn btn-primary" href="#deleteEmployeeModal" role="button" data-toggle="modal"
-               th:onclick="|setIdToForm('${contract.contractId}')|">Delete</a></td>
+               sec:authorize="hasRole('ROLE_MANAGER')" th:onclick="|setIdToForm('${contract.contractId}')|">Delete</a></td>
     </tr>
 
     <!-- Delete Modal HTML -->

@@ -21,15 +21,15 @@ public class Service {
     private String serviceName;
 
     @Column(name = "service_area")
-    @Min(1)
+    @Min(value = 1, message = "Area > 0 !!")
     private int serviceArea;
 
     @Column(name = "service_cost")
-    @Min(1)
+    @Min(value = 1, message = "Cost > 0 !!")
     private double serviceCost;
 
     @Column(name = "service_max_people")
-    @Min(1)
+    @Min(value = 1, message = "Max People > 0 !!")
     private int serviceMaxPeople;
 
     @Column(name = "standard_room")
@@ -41,11 +41,11 @@ public class Service {
     private String descriptionOtherConvenience;
 
     @Column(name = "pool_area")
-    @Min(1)
+    @Min(value = 1, message = "Pool Area > 0 !!")
     private double poolArea;
 
     @Column(name = "number_of_floors")
-    @Min(1)
+    @Min(value = 1, message = "Number Of Floors > 0 !!")
     private int numberOfFloors;
 
     //------------------------ Tạo Mối Quan Hệ -------------------------

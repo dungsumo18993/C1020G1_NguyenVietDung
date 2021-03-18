@@ -1,6 +1,8 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import java.util.Set;
 
 @Entity
@@ -12,15 +14,19 @@ public class Contract {
     private Integer contractId;
 
     @Column(name = "contract_start_date")
+    @NotEmpty(message = "Not be empty !!")
     private String contractStartDate;
 
     @Column(name = "contract_end_date")
+    @NotEmpty(message = "Not be empty !!")
     private String contractEndDate;
 
     @Column(name = "contract_deposit")
+    @Min(value = 1, message = "Deposit > 0")
     private double contractDeposit;
 
     @Column(name = "contract_total_money")
+    @Min(value = 1, message = "Total > 0")
     private double contractTotalMoney;
 
     //----------------------- Tạo mối quan hệ--------------------------
@@ -36,7 +42,7 @@ public class Contract {
     @JoinColumn(name = "service_id", referencedColumnName = "service_id")
     private Service service;
 
-    @OneToMany(mappedBy = "contract")
+    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
     private Set<ContractDetail> contractDetailSet;
 
     //-----------------------------------------------------------------

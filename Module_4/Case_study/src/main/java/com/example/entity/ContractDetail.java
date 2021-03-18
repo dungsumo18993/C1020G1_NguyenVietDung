@@ -1,6 +1,8 @@
 package com.example.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "contract_detail")
@@ -9,6 +11,7 @@ public class ContractDetail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contract_detail_id")
     private Integer contractDetailId;
+    @Min(value = 1, message = "quantity > 0 !!")
     private int quantity;
 
     //---------------- Tạo mối quan hệ --------------------

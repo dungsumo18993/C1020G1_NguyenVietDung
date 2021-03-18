@@ -12,10 +12,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -66,10 +68,14 @@ public class ContractController {
     }
 
     @PostMapping("/save")
-    public String save(Contract contract, RedirectAttributes redirect){
-        contractService.save(contract);
-        redirect.addFlashAttribute("message", "Add new Contract successfully !!");
-        return "redirect:/contract/";
+    public String save(@Valid @ModelAttribute("contract") Contract contract, BindingResult bindingResult, RedirectAttributes redirect){
+        if (bindingResult.hasFieldErrors()){
+            return "contract/create";
+        } else {
+            contractService.save(contract);
+            redirect.addFlashAttribute("message", "Add new Contract successfully !!");
+            return "redirect:/contract/";
+        }
     }
 
     @GetMapping("/create-detail")
@@ -78,10 +84,14 @@ public class ContractController {
     }
 
     @PostMapping("/save-detail")
-    public String saveDetail(ContractDetail contractDetail, RedirectAttributes redirect){
-        contractDetailService.save(contractDetail);
-        redirect.addFlashAttribute("message", "Add new Contract Detail successfully !!");
-        return "redirect:/contract/create-detail";
+    public String saveDetail(@Valid @ModelAttribute ContractDetail contractDetail, BindingResult bindingResult, RedirectAttributes redirect){
+        if (bindingResult.hasFieldErrors()){
+            return "contract/detail";
+        } else {
+            contractDetailService.save(contractDetail);
+            redirect.addFlashAttribute("message", "Add new Contract Detail successfully !!");
+            return "redirect:/contract/create-detail";
+        }
     }
 
     @GetMapping("/active-list")
