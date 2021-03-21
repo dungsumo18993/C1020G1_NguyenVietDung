@@ -13,7 +13,7 @@ import java.util.List;
 public interface EmployeeService {
     Page<Employee> findAll(Pageable pageable);
 
-    Page<Employee> findByName(String name, Pageable pageable);
+    Page<Employee> findAllInput(String name, Pageable pageable);
 
     Employee findById(Integer id);
 

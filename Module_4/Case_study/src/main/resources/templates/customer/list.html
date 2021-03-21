@@ -28,17 +28,17 @@
     <thead>
     <tr>
         <th>STT</th>
-        <th>Name</th>
-        <th>Code</th>
-        <th>Date Of Birth</th>
-        <th>Gender</th>
-        <th>Id Card</th>
-        <th>Phone</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Customer Type</th>
+        <th>NAME</th>
+        <th>CODE</th>
+        <th>DATE OF BIRTH</th>
+        <th>GENDER</th>
+        <th>ID CARD</th>
+        <th>PHONE</th>
+        <th>EMAIL</th>
+        <th>ADDRESS</th>
+        <th>CUSTOMER TYPE</th>
         <th colspan="3">
-            Action
+            ACTION
         </th>
 
     </tr>
@@ -55,9 +55,11 @@
         <td th:text="${customer.customerEmail}"></td>
         <td th:text="${customer.customerAddress}"></td>
         <td th:text="${customer.customerType.customerTypeName}"></td>
-        <td><a class="btn btn-primary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/customer/{id}/edit(id=${customer.customerId})}">Edit</a></td>
-        <td><a class="btn btn-primary" href="#deleteEmployeeModal" role="button" data-toggle="modal"
-               sec:authorize="hasRole('ROLE_MANAGER')" th:onclick="|setIdToForm('${customer.customerId}')|">Delete</a></td>
+        <td><a class="btn btn-secondary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/customer/{id}/edit(id=${customer.customerId})}">Edit</a></td>
+        <td><a class="btn btn-danger" href="#deleteEmployeeModal" role="button" data-toggle="modal"
+               sec:authorize="hasRole('ROLE_MANAGER')" th:data-thing="${customer.customerName}"
+                                                        th:data-id="${customer.customerId}"
+               onclick="setIdToForm(this.getAttribute('data-id'),this.getAttribute('data-thing'))">Delete</a></td>
         <td><a class="btn btn-primary" href="#" role="button" th:href="@{/customer/{id}/view(id=${customer.customerId})}">View</a></td>
     </tr>
 
@@ -67,17 +69,17 @@
             <div class="modal-content">
                 <form th:action="@{/customer-delete}">
                     <div class="modal-header">
-                        <h4 class="modal-title">Delete Customer</h4>
+                        <h4 class="modal-title">DELETE CUSTOMER</p></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to delete these Records?</p>
+                        <p>Are you sure you want to delete <span id="customerName" style="color:red;"></span>?</p>
                         <p class="text-warning"><small>This action cannot be undone.</small></p>
                     </div>
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         <input type="hidden" id="setCustomerId" name="id">
-                        <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
+                        <button type="submit" class="btn btn-danger" value="Delete">OK</button>
                     </div>
                 </form>
             </div>
@@ -105,8 +107,9 @@
 </div>
 <footer th:replace="/layout :: footer"></footer>
 <script>
-    function setIdToForm(id) {
+    function setIdToForm(id, name) {
         document.getElementById("setCustomerId").value = id;
+        document.getElementById("customerName").textContent = name;
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

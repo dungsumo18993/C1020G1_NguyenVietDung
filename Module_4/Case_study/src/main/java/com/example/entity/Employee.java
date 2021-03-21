@@ -56,8 +56,8 @@ public class Employee {
     private Division division;
 
     @OneToOne
-    @JoinColumn(name = "user_name", referencedColumnName = "user_name")
-    private User user;
+    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
+    private UserFurama userFurama;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<Contract> contractSet;
@@ -67,12 +67,12 @@ public class Employee {
     public Employee() {
     }
 
-    public User getUser() {
-        return user;
+    public UserFurama getUserFurama() {
+        return userFurama;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserFurama(UserFurama userFurama) {
+        this.userFurama = userFurama;
     }
 
     public Set<Contract> getContractSet() {

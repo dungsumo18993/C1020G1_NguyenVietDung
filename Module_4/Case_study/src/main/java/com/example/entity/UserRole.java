@@ -12,7 +12,7 @@ public class UserRole {
     //------------------- Tạo mối quan hệ --------------------
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    private UserFurama userFurama;
 
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
@@ -31,12 +31,12 @@ public class UserRole {
         UserRoleId = userRoleId;
     }
 
-    public User getUser() {
-        return user;
+    public UserFurama getUserFurama() {
+        return userFurama;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserFurama(UserFurama userFurama) {
+        this.userFurama = userFurama;
     }
 
     public Role getRole() {

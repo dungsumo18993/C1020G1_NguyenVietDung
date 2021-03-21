@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
     @GetMapping("/")
-    public String welcomePage(Model model){
+    public String welcomePage(){
         return "home";
     }
 

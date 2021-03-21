@@ -52,8 +52,8 @@
             <p th:each="contractDetail : ${contract.contractDetailSet}"
                th:text="${contractDetail.attachService.attachServiceName}"></p>
         </td>
-        <td><a class="btn btn-primary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/services/{id}/edit(id=${contract.service.serviceId})}">Edit</a></td>
-        <td><a class="btn btn-primary" href="#deleteEmployeeModal" role="button" data-toggle="modal"
+        <td><a class="btn btn-secondary" href="#" role="button" sec:authorize="hasRole('ROLE_MANAGER')" th:href="@{/services/{id}/edit(id=${contract.service.serviceId})}">Edit</a></td>
+        <td><a class="btn btn-danger" href="#deleteEmployeeModal" role="button" data-toggle="modal"
                sec:authorize="hasRole('ROLE_MANAGER')" th:onclick="|setIdToForm('${contract.contractId}')|">Delete</a></td>
     </tr>
 
@@ -63,7 +63,7 @@
             <div class="modal-content">
                 <form th:action="@{/services/delete}">
                     <div class="modal-header">
-                        <h4 class="modal-title">Delete Customer</h4>
+                        <h4 class="modal-title">DELETE CUSTOMER ACTIVE</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     </div>
                     <div class="modal-body">
@@ -73,7 +73,7 @@
                     <div class="modal-footer">
                         <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
                         <input type="hidden" id="setContractId" name="id">
-                        <button type="submit" class="btn btn-danger" value="Delete">Delete</button>
+                        <button type="submit" class="btn btn-danger" value="Delete">OK</button>
                     </div>
                 </form>
             </div>

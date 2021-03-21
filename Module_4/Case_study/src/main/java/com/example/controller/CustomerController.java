@@ -84,12 +84,10 @@ public class CustomerController {
         String keywordOld = "";
         if (!keyword.isPresent()) {
             model.addAttribute("customerList", customerService.findAllCustomer(pageable));
-            return "/customer/list";
         } else {
             keywordOld = keyword.get();
             model.addAttribute("customerList", customerService.findAllInput(keywordOld, pageable));
-            model.addAttribute("keywordOld", keywordOld);
-            return "/customer/list";
         }
+        return "/customer/list";
     }
 }

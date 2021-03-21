@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/employees")
@@ -72,7 +74,14 @@ public class EmployeeController {
     }
 
     @GetMapping("/search")
-    public ModelAndView search(@PageableDefault(size = 5) Pageable pageable, @RequestParam String name){
-        return new ModelAndView("/employee/list", "employees", employeeService.findByName(name, pageable));
+    public String search(@PageableDefault(size = 5) Pageable pageable, @RequestParam Optional<String> keyword, Model model) {
+        String keywordOld = "";
+        if (!keyword.isPresent()){
+            model.addAttribute("employees", employeeService.findAll(pageable));
+        } else {
+            keywordOld = keyword.get();
+            model.addAttribute("employees", employeeService.findAllInput(keywordOld, pageable));
+        }
+        return "employee/list";
     }
 }

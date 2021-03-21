@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class User {
+public class UserFurama {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,17 +18,16 @@ public class User {
     private String userPassword;
 
     //--------------------- Tạo mối quan hệ --------------------------
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "userFurama")
     private Set<UserRole> userRoleSet;
 
-    @OneToOne
-    @JoinColumn(name = "employee_id", referencedColumnName = "employee_id")
+    @OneToOne(mappedBy = "userFurama")
     private Employee employee;
 
     //---------------------------------------------------------------
 
 
-    public User() {
+    public UserFurama() {
     }
 
     public Employee getEmployee() {
