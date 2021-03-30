@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<head th:insert="/layout :: head">
+</head>
+<body>
+<h1>Danh Sách giao dịch nhà đất</h1>
+
+<form class="form-inline my-2 my-lg-0" th:action="@{/search}">
+    <a class="btn btn-primary" href="#" role="button" th:href="@{/create}">Thêm mới</a>
+    <lable style="font-size: 30px; margin-left: 880px">Search by name: </lable>
+    <input style="margin-left: 10px" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="keyword">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+</form><br>
+<div class="notify">
+    <div th:if="${message}">
+        <h3 style="color: green" th:text="${message}"></h3>
+    </div>
+</div>
+<table id = "tables">
+    <thead>
+    <tr>
+        <th>MÃ GIAO DỊCH</th>
+        <th>TÊN KHÁCH HÀNG</th>
+        <th>NGÀY GIAO DỊCH</th>
+        <th>LOẠI DỊCH VỤ</th>
+        <th>ĐƠN GIÁ(VND/m2)</th>
+        <th>DIỆN TÍCH(m2)</th>
+        <th>ACTION</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="giaoDich,rowStat : ${giaoDichList}">
+        <td th:text="${giaoDich.maGiaoDich}"></td>
+        <td th:text="${giaoDich.khachHang.tenKhachHang}"></td>
+        <td th:text="${giaoDich.ngayGiaoDich}"></td>
+        <td th:text="${giaoDich.loaiDichVu}"></td>
+        <td th:text="${giaoDich.donGia}"></td>
+        <td th:text="${giaoDich.dienTich}"></td>
+        <td><a class="btn btn-primary" href="#" role="button" th:href="@{/{id}/view(id=${giaoDich.idGiaoDich})}">Chi tiết</a></td>
+    </tr>
+    </tbody>
+</table>
+<div class="clearfix">
+    <ul class="pagination" style="float: right; margin: 10px 50px">
+        <li class="page-item">
+            <a th:href="@{'/'(page=${giaoDichList.number - 1})}" th:if="${giaoDichList.hasPrevious()}" class="page-link">
+                Previous
+            </a>
+        </li>
+
+        <li class="page-item active" th:each="numberPage : ${giaoDichList.totalPages}">
+            <a class="page-link" th:href="@{'/'(page=${giaoDichList.number})}" th:text="${giaoDichList.number + 1}"></a>
+        </li>
+        <li class="page-item">
+            <a th:href="@{'/'(page=${giaoDichList.number + 1})}" th:if="${giaoDichList.hasNext()}" class="page-link">
+                Next
+            </a>
+        </li>
+    </ul>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>

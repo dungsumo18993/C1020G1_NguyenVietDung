@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+<h1>Thêm mới Giao Dịch</h1>
+<h2>
+    <a th:href="@{/}">
+        Quay Lại Danh Sách Giao Dịch
+    </a>
+</h2>
+<div id="form">
+    <form action="#" th:action="@{/save}" th:object="${giaoDich}" method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{idGiaoDich}"/>
+        <div>
+            <label>MÃ GIAO DỊCH: </label>
+            <input type="text" th:field="*{maGiaoDich}"/>
+            <small th:if="${#fields.hasErrors('maGiaoDich')}" th:errors="*{maGiaoDich}">Name Error</small>
+        </div>
+        <div>
+            <label>TÊN KHÁCH HÀNG: </label>
+            <select th:field="*{khachHang}">
+                <option th:each="k : ${danhSachKhachHang}"
+                        th:value="${k.idKhachHang}"
+                        th:text="${k.tenKhachHang}">
+                </option>
+            </select>
+        </div>
+        <div>
+            <label>LOẠI BẤT ĐỘNG SẢN: </label>
+            <input type="radio" th:field="*{loaiDichVu}" value="Đất"/>Đất
+            <input type="radio" th:field="*{loaiDichVu}" value="Nhà đất"/>Nhà đất<br>
+            <small th:if="${#fields.hasErrors('loaiDichVu')}" th:errors="*{loaiDichVu}">Name Error</small>
+        </div>
+        <div>
+            <label>NGÀY GIAO DỊCH: </label>
+            <input type="date" th:field="*{ngayGiaoDich}"/>
+            <small th:if="${#fields.hasErrors('ngayGiaoDich')}" th:errors="*{ngayGiaoDich}">Name Error</small>
+        </div>
+        <div>
+            <label>ĐƠN GIÁ (VND): </label>
+            <input type="tel" th:field="*{donGia}"/>
+            <small th:if="${#fields.hasErrors('donGia')}" th:errors="*{donGia}">Name Error</small>
+        </div>
+
+        <div>
+            <label>DIỆN TÍCH (m2): </label>
+            <input type="text" th:field="*{dienTich}"/>
+            <small th:if="${#fields.hasErrors('dienTich')}" th:errors="*{dienTich}">Name Error</small>
+        </div>
+
+        <input type="submit" value="Lưu"></input>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+<style>
+    small {
+        color: red;
+    }
+</style>
+</body>
+</html>

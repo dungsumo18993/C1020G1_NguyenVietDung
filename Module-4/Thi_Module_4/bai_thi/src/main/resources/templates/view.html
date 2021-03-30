@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<head th:replace="/layout :: head"></head>
+<body>
+<h1>Chi Tiết Giao Dịch</h1>
+<h2>
+    <a th:href="@{/}">
+        Quay Lại Danh Sách Giao Dịch
+    </a>
+</h2>
+<div id="detail">
+    <table id="tables">
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>MÃ GIAO DỊCH</th>-->
+<!--            <th>LOẠI BẤT ĐỘNG SẢN</th>-->
+<!--            <th>NGÀY GIAO DỊCH</th>-->
+<!--            <th>ĐƠN GIÁ (VND)</th>-->
+<!--            <th>DIỆN TÍCH (m2)</th>-->
+<!--            <th>TÊN KHÁCH HÀNG</th>-->
+<!--            <th>SỐ ĐIỆN THOẠI</th>-->
+<!--            <th>Email</th>-->
+<!--            <th>ACTION</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr>-->
+<!--            <td th:text="${giaoDich.maGiaoDich}"></td>-->
+<!--            <td th:text="${giaoDich.loaiDichVu}"></td>-->
+<!--            <td th:text="${giaoDich.ngayGiaoDich}"></td>-->
+<!--            <td th:text="${giaoDich.donGia}"></td>-->
+<!--            <td th:text="${giaoDich.dienTich}"></td>-->
+<!--            <td th:text="${giaoDich.khachHang.tenKhachHang}"></td>-->
+<!--            <td th:text="${giaoDich.khachHang.soDienThoai}"></td>-->
+<!--            <td th:text="${giaoDich.khachHang.email}"></td>-->
+<!--            <td>-->
+<!--                <a class="btn btn-danger" href="#deleteEmployeeModal" role="button" data-toggle="modal">Delete</a>-->
+<!--            </td>-->
+<!--        </tr>-->
+            <tr>
+                <td>MÃ GIAO DỊCH: </td>
+                <td th:text="${giaoDich.maGiaoDich}"></td>
+            </tr>
+            <tr>
+                <td>LOẠI BẤT ĐỘNG SẢN: </td>
+                <td th:text="${giaoDich.loaiDichVu}"></td>
+            </tr>
+            <tr>
+                <td>NGÀY GIAO DỊCH: </td>
+                <td th:text="${giaoDich.ngayGiaoDich}"></td>
+            </tr>
+            <tr>
+                <td>ĐƠN GIÁ (VND): </td>
+                <td th:text="${giaoDich.donGia}"></td>
+            </tr>
+            <tr>
+                <td>DIỆN TÍCH (m2): </td>
+                <td th:text="${giaoDich.dienTich}"></td>
+            </tr>
+            <tr>
+                <td>TÊN KHÁCH HÀNG: </td>
+                <td th:text="${giaoDich.khachHang.tenKhachHang}"></td>
+            </tr>
+            <tr>
+                <td>SỐ ĐIỆN THOẠI: </td>
+                <td th:text="${giaoDich.khachHang.soDienThoai}"></td>
+            </tr>
+            <tr>
+                <td>EMAIL: </td>
+                <td th:text="${giaoDich.khachHang.email}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <div class="col-lg-4 offset-lg-4">
+                        <a class="btn btn-danger btn-block" href="#deleteEmployeeModal" role="button" data-toggle="modal">Xóa</a>
+                    </div>
+                </td>
+            </tr>
+
+        <!-- Delete Modal HTML -->
+        <div id="deleteEmployeeModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form th:action="@{/{id}/delete(id=${giaoDich.idGiaoDich})}">
+                        <div class="modal-header">
+                            <h4 class="modal-title">XÓA GIAO DỊCH</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Bạn chắc chắn muốn xóa giao dịch này chứ ?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Hủy">
+                            <button type="submit" class="btn btn-danger" value="Delete">OK</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </table>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+</body>
+</html>
