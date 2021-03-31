@@ -3,15 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentComponent } from './student/student.component';
 import {FormsModule} from "@angular/forms";
-import { StudentListComponent } from './student-list/student-list.component';
+import { LikesComponent } from './likes/likes.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentComponent,
-    StudentListComponent
+    LikesComponent,
+    NavbarComponent,
+    FooterComponent
   ],
     imports: [
         BrowserModule,
