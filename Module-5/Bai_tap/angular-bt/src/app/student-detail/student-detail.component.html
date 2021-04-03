@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="col-6">
+    <a routerLink="/" class="btn btn-info">Back to Student List</a>
+    <table class="table table-striped">
+      <tr>
+        <td>AVATAR:</td>
+        <td><img [src]="studentDetail.avatarImg" alt="#" width="200px" height="200px"></td>
+      </tr>
+
+      <tr>
+        <td>ID: </td>
+        <td>{{studentDetail.id}}</td>
+      </tr>
+      <tr>
+        <td>NAME: </td>
+        <td>{{studentDetail.name}}</td>
+      </tr>
+      <tr>
+        <td>AGE: </td>
+        <td>{{studentDetail.age}}</td>
+      </tr>
+      <tr>
+        <td>HEIGHT: </td>
+        <td>{{studentDetail.height}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,65 @@
+
+<div class="container-fluid">
+  <a routerLink="/" class="btn badge-info">Back To Student List</a>
+  <div class="col-6">
+    <form [formGroup]="createForm" (ngSubmit)="createStudent()">
+      <div class="form-group">
+        <label for="id">Id: </label>
+        <input type="text" class="form-control" id="id" name="id" formControlName="id">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!Id.valid && (Id.dirty || Id.touched)">
+        Id không được để trống !!
+      </div>
+      <div class="form-group">
+        <label for="name">Name: </label>
+        <input type="text" class="form-control" id="name" name="name" formControlName="name">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!Name.valid && (Name.dirty || Name.touched)">
+        <div [hidden] ="!Name.errors?.required">
+          Name không được để trống !!
+        </div>
+        <div [hidden]="!Name.errors?.minlength">
+          Độ dài tên phải lớn hơn 5 chữ !!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="age">Age: </label>
+        <input type="text" class="form-control" id="age" name="age" formControlName="age">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!Age.valid && (Age.dirty || Age.touched)">
+        <div [hidden] ="!Age.errors?.required">
+          Age không được để trống !!
+        </div>
+        <div [hidden]="!Age.errors?.min">
+          Age > 18 !!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="height">Height: </label>
+        <input type="text" class="form-control" id="height" name="height" formControlName="height">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!Height.valid && (Height.dirty || Height.touched)">
+        <div [hidden] ="!Height.errors?.required">
+          Height không được để trống !!
+        </div>
+        <div [hidden]="!Height.errors?.min">
+          Height > 160cm !!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="avatar">Avatar: </label>
+        <input type="text" class="form-control" id="avatar" name="avatar" formControlName="avatarImg">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!Avatar.valid && (Avatar.dirty || Avatar.touched)">
+        Avatar không được để trống !!
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</div>
+
