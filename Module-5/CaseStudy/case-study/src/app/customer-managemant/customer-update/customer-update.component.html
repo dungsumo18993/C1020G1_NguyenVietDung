@@ -1,0 +1,111 @@
+<h1 style="color: blue; text-align: center">Update <strong>Customer</strong></h1>
+<a routerLink="/customer-list" class="btn badge-info">Back To Customer List</a>
+<form [formGroup]="updateCustomerForm" (ngSubmit)="updateCustomer()">
+  <div class="d-flex justify-content-center align-content-center">
+    <div class="col-4">
+      <div class="form-group">
+        <label for="customerCode">Code: </label>
+        <input type="text" class="form-control" id="customerCode" name="customerCode" formControlName="customerCode">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!customerCode.valid && (customerCode.dirty || customerCode.touched)">
+        <div [hidden] ="!customerCode.errors?.required">
+          Name không được để trống !!
+        </div>
+        <div [hidden] ="!customerCode.errors?.pattern">
+          Mã Khách Hàng phải đúng định dạng (KH-XXXX) X(0-9) !!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="customerName">Name: </label>
+        <input type="text" class="form-control" id="customerName" name="customerName" formControlName="customerName">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!customerName.valid && (customerName.dirty || customerName.touched)">
+        <div [hidden] ="!customerName.errors?.required">
+          Name không được để trống !!
+        </div>
+        <div [hidden]="!customerName.errors?.minlength">
+          Độ dài Tên phải lớn hơn 5 chữ !!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="customerBirthday">Birthday: </label>
+        <input type="date" class="form-control" id="customerBirthday" name="customerBirthday" formControlName="customerBirthday">
+      </div>
+      <div class="form-group">
+        <label>Gender: </label>
+        <select class="form-control" name="customerGender" id="customerGender" formControlName="customerGender">
+          <option value="Male">Male</option>
+          <option value="Male">Female</option>
+          <option value="Male">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customerIdCard">Id Card: </label>
+        <input type="text" class="form-control" id="customerIdCard" name="customerIdCard" formControlName="customerIdCard">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!customerIdCard.valid && (customerIdCard.dirty || customerIdCard.touched)">
+        <div [hidden] ="!customerIdCard.errors?.required">
+          Không được để trống !!
+        </div>
+        <div [hidden] ="!customerIdCard.errors?.pattern">
+          Id Card phải đúng định dạng XXXXXXXXX hoặc XXXXXXXXXXXX X(0-9) !!
+        </div>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="form-group">
+        <label for="customerType">Type: </label>
+        <select [compareWith]="compareFn" class="form-control" name="customerType" id="customerType" formControlName="customerType">
+          <option *ngFor="let customerType of customerTypes" [ngValue]="customerType">
+            {{customerType.customerTypeName}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="customerPhone">Phone: </label>
+        <input type="text" class="form-control" id="customerPhone" name="customerPhone" formControlName="customerPhone">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!customerPhone.valid && (customerPhone.dirty || customerPhone.touched)">
+        <div [hidden] ="!customerPhone.errors?.required">
+          Không được để trống !!
+        </div>
+        <div [hidden] ="!customerPhone.errors?.pattern">
+          Phone phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx X(0-9) !!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="customerEmail">Email: </label>
+        <input type="text" class="form-control" id="customerEmail" name="customerEmail" formControlName="customerEmail">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!customerEmail.valid && (customerEmail.dirty || customerEmail.touched)">
+        <div [hidden] ="!customerEmail.errors?.required">
+          Không được để trống !!
+        </div>
+        <div [hidden] ="!customerEmail.errors?.email">
+          Email phải đúng định dạng abc@abc.abc !!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="customerAddress">Address: </label>
+        <input type="text" class="form-control" id="customerAddress" name="customerAddress" formControlName="customerAddress">
+      </div>
+      <div class="alert alert-danger"
+           *ngIf="!customerAddress.valid && (customerAddress.dirty || customerAddress.touched)">
+        Không được để trống !!
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-center align-content-center">
+    <button type="submit" class="btn btn-success mb-3" style="width: 100px">Update</button>
+  </div>
+</form>
+
+
+
+
+

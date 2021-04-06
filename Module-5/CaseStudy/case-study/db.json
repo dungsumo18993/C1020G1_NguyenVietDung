@@ -1,0 +1,71 @@
+{
+  "customers": [
+    {
+      "customerCode": "KH-0001",
+      "customerName": "Nguyễn Việt Dũng",
+      "customerBirthday": "1993-09-18",
+      "customerGender": "Male",
+      "customerIdCard": "123123321321",
+      "customerPhone": "0908998999",
+      "customerEmail": "dung@gmail.com",
+      "customerAddress": "Hà Tĩnh",
+      "customerType": {
+        "customerTypeId": 1,
+        "customerTypeName": "Diamond"
+      },
+      "id": 1
+    },
+    {
+      "customerCode": "KH-0004",
+      "customerName": "Hồ Anh Dũng",
+      "customerBirthday": "1991-11-11",
+      "customerGender": "Male",
+      "customerIdCard": "123123321321",
+      "customerPhone": "0905161619",
+      "customerEmail": "duong@gmail.com",
+      "customerAddress": "Hà Nội",
+      "customerType": {
+        "customerTypeId": 3,
+        "customerTypeName": "Gold"
+      },
+      "id": 2
+    },
+    {
+      "customerCode": "KH-0005",
+      "customerName": "Dương Quá",
+      "customerBirthday": "1998-11-11",
+      "customerGender": "Male",
+      "customerIdCard": "123123321321",
+      "customerPhone": "0905161617",
+      "customerEmail": "duong@gmail.com",
+      "customerAddress": "Hải Phòng",
+      "customerType": {
+        "customerTypeId": 5,
+        "customerTypeName": "Member"
+      },
+      "id": 3
+    }
+  ],
+  "customerTypes": [
+    {
+      "customerTypeId": 1,
+      "customerTypeName": "Diamond"
+    },
+    {
+      "customerTypeId": 2,
+      "customerTypeName": "Platinum"
+    },
+    {
+      "customerTypeId": 3,
+      "customerTypeName": "Gold"
+    },
+    {
+      "customerTypeId": 4,
+      "customerTypeName": "Silver"
+    },
+    {
+      "customerTypeId": 5,
+      "customerTypeName": "Member"
+    }
+  ]
+}

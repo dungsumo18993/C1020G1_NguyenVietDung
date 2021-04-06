@@ -1,0 +1,43 @@
+<h1 style="color: blue">Detail <strong>Customer</strong></h1>
+<a routerLink="/customer-list" class="btn badge-info mb-3">Back To Customer List</a>
+<div class="d-flex justify-content-center align-content-center">
+  <table class="table table-striped">
+    <tr>
+      <td><strong>CODE</strong></td>
+      <td>{{customerDetail.customerCode}}</td>
+    </tr>
+    <tr>
+      <td><strong>NAME</strong></td>
+      <td>{{customerDetail.customerName}}</td>
+    </tr>
+    <tr>
+      <td><strong>TYPE</strong></td>
+      <td>{{customerDetail.customerType.customerTypeName}}</td>
+    </tr>
+    <tr>
+      <td><strong>BIRTHDAY</strong></td>
+      <td>{{customerDetail.customerBirthday}}</td>
+    </tr>
+    <tr>
+      <td><strong>GENDER</strong></td>
+      <td>{{customerDetail.customerGender}}</td>
+    </tr>
+    <tr>
+      <td><strong>ID CARD</strong></td>
+      <td>{{customerDetail.customerIdCard}}</td>
+    </tr>
+    <tr>
+      <td><strong>PHONE</strong></td>
+      <td>{{customerDetail.customerPhone}}</td>
+    </tr>
+    <tr>
+      <td><strong>EMAIL</strong></td>
+      <td>{{customerDetail.customerEmail}}</td>
+    </tr>
+    <tr>
+      <td><strong>ADDRESS</strong></td>
+      <td>{{customerDetail.customerAddress}}</td>
+    </tr>
+  </table>
+</div>
+

@@ -1,10 +1,21 @@
 - Lệnh thêm jquery & bootstrap
 npm i bootstrap jquery --save
-
+-----------------------------------------------------------
 - Thêm vào styles
 "node_modules/bootstrap/dist/css/bootstrap.min.css",
-
-- Thêm vào scripts
-
+-----------------------------------------------------------
+- Thêm vào scripts:
 "node_modules/jquery/dist/jquery.min.js",
 "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+-----------------------------------------------------------
+- Tạo db.json:
+npm i -g json-server
+json-server --watch db.json
+-----------------------------------------------------------
++ Truyền dữ liệu lên form
+compareFn(c1: TypeCustomer, c2: TypeCustomer): boolean {
+  return c1 && c2 ? c1.id === c2.id : false;
+}
++ Đặt trong thể select:
+[compareWith]="compareFn"
+-----------------------------------------------------------
