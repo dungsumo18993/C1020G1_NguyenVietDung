@@ -1,0 +1,61 @@
+<h1 style="text-align: center; color: blue">List <strong>Customer</strong></h1>
+<div>
+  <a routerLink="/customer-create" class="btn btn-success" style="margin: 10px 10px">Add New Customer</a>
+  <div class="form-inline my-2 my-lg-0" style="float: right; margin: 10px 10px">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="term">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </div>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">MÃ LÔ HÀNG</th>
+    <th scope="col">TÊN SẢN PHẨM</th>
+    <th scope="col">GIÁ TIỀN</th>
+    <th scope="col">ĐƠN VỊ</th>
+    <th scope="col">SỐ LƯỢNG</th>
+    <th scope="col">NGÀY NHẬP HÀNG</th>
+    <th scope="col">NGÀY SẢN XUẤT</th>
+    <th scope="col">NGÀY HẾT HẠN</th>
+    <th scope="col">ACTION</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let loHang of loHangList |filter:term | paginate: { itemsPerPage: 5, currentPage: p }">
+    <td>{{loHang.maLoHang}}</td>
+    <td>{{loHang.sanPham.tenSanPham}}</td>
+    <td>{{loHang.sanPham.gia}}</td>
+    <td>{{loHang.sanPham.donVi}}</td>
+    <td>{{loHang.soLuong}}</td>
+    <td>{{loHang.ngayNhapHang | date : 'dd/MM/yyyy'}}</td>
+    <td>{{loHang.ngaySanXuat | date : 'dd/MM/yyyy'}}</td>
+    <td>{{loHang.ngayHetHan | date : 'dd/MM/yyyy'}}</td>
+    <td>
+      <a class="btn btn-warning mr-2" style="color: white" [routerLink]="['/customer-update', loHang.id]">Sửa</a>
+      <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal" style="color: white" (click)="showDelete(loHang.id)">Xóa</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<pagination-controls (pageChange)="p = $event" style="float: right; margin-right: 80px"></pagination-controls>
+<div class="clearfix"></div>
+<!-- Delete Modal HTML -->
+<div id="deleteEmployeeModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Customer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete these Records?</p>
+        <p class="text-warning"><small>This action cannot be undone.</small></p>
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+        <input type="submit" class="btn btn-danger" data-dismiss="modal" value="OK" (click)="delete()">
+      </div>
+    </div>
+  </div>
+</div>
